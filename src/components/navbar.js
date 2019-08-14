@@ -1,13 +1,17 @@
 import React from "react"
 import "./navbar.css"
+import Img from "../components/image"
 
 export default () => (
   <nav class="navbar-container">
-    <div class="logo"></div>
+    <div class="logo">
+      <Img></Img>
+    </div>
     <ul class="navbar-items">
         <li>Home</li>
-        <li>About</li>
-        <li>Contact</li>
+        <li>Progetti</li>
+        <li>Chi Sono</li>
+        <li>Visita il mio Blog</li>
       </ul>
   </nav>
 )
