@@ -1,17 +1,16 @@
 import Typography from "typography"
 
 const typography = new Typography({
-  baseFontSize: "18px",
+  baseFontSize: "25px",
   baseLineHeight: 1.666,
-  headerFontFamily: ["Open Sans", "900"],
-  bodyFontFamily: ["Open Sans", "300"],
+  scaleRatio: 2,
+  headerFontFamily: ["Lato", "900"],
+  bodyFontFamily: ["Lato", "400"],
   googleFonts: [
     {
-      name: 'lato',
+      name: 'Lato',
       styles: [
-        '300',
         '400',
-        '700',
         '900'
       ],
     }
