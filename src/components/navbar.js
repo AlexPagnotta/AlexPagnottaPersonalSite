@@ -8,10 +8,13 @@ export default () => (
       <Img></Img>
     </div>
     <ul class="navbar-items">
-        <li>Home</li>
-        <li>Progetti</li>
-        <li>Chi Sono</li>
-        <li>Visita il mio Blog</li>
-      </ul>
+      <li>Home</li>
+      <li>Progetti</li>
+      <li>Chi Sono</li>
+      <li>Visita il mio Blog</li>
+    </ul>
+    <button class="hamburger hamburger-cancel">
+      <span class="icon"></span>
+    </button>
   </nav>
 )
