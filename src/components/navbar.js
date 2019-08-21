@@ -13,8 +13,5 @@ export default () => (
       <li>Chi Sono</li>
       <li>Visita il mio Blog</li>
     </ul>
-    <button class="hamburger hamburger-cancel">
-      <span class="icon"></span>
-    </button>
   </nav>
 )
