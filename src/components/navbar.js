@@ -1,7 +1,8 @@
 import React from "react"
-import Img from "../components/image"
 import styled from "styled-components"
 import media from "../Utils/mediaQueries";
+import { useStaticQuery, graphql } from "gatsby"
+import Img from "gatsby-image"
 
 const Container = styled.nav`
 height: 220px; 
@@ -12,9 +13,8 @@ padding: 30px;
 
 ${media.tablet`
   height: 150px; 
-`}
+`}1
 `
-
 const Logo = styled.div`
 width: 90px;
 height: 70px;
@@ -59,19 +59,50 @@ const MenuIcon = styled.div`
   `}
 }`
 
-export default () => (
-  <Container>
-    <Logo>
-      <Img></Img>
-    </Logo>
-    <MenuItems>
-      <MenuItem>Home</MenuItem>
-      <MenuItem>Progetti</MenuItem>
-      <MenuItem>Chi Sono</MenuItem>
-      <MenuItem>Visita il mio Blog</MenuItem>
-    </MenuItems>
-    <MenuIcon>
-      <div></div>
-    </MenuIcon>
-  </Container>
-)
+export default () => {
+
+  const logoImages = useStaticQuery(graphql`
+    query {
+      desktopLogoImage: file(relativePath: { eq: "logo.png" }) {
+        childImageSharp {
+          fixed(height: 70) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+      mobileLogoImage: file(relativePath: { eq: "logo.png" }) {
+        childImageSharp {
+          fixed(height: 40) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+    }
+  `)
+
+  const sources = [
+    logoImages.mobileLogoImage.childImageSharp.fixed,
+    {
+      ...logoImages.desktopLogoImage.childImageSharp.fixed,
+      media: `(min-width: 768px)`,
+    },
+  ]
+
+  return ( 
+    <Container>
+      <Logo>
+        <Img fixed ={logoImages.mobileLogoImage.childImageSharp.fixed} /> 
+        <Img fixed ={logoImages.desktopLogoImage.childImageSharp.fixed} /> 
+      </Logo>
+      <MenuItems>
+        <MenuItem>Home</MenuItem>
+        <MenuItem>Progetti</MenuItem>
+        <MenuItem>Chi Sono</MenuItem>
+        <MenuItem>Visita il mio Blog</MenuItem>
+      </MenuItems>
+      <MenuIcon>
+        <div></div>
+      </MenuIcon>
+    </Container>
+  )
+}
