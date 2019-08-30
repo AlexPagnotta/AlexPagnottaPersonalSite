@@ -3,6 +3,7 @@ import styled from "styled-components"
 import media from "../Utils/mediaQueries";
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
+import colors from "../globals/colors";
 
 const Container = styled.nav`
 height: 220px; 
@@ -15,10 +16,29 @@ ${media.tablet`
   height: 150px; 
 `}1
 `
-const Logo = styled.div`
-width: 90px;
-height: 70px;
-background-color: white;`
+const LogoDesktop = styled.div`
+display: flex;
+margin-bottom: 0px;
+flex-direction: row;
+justify-content: flex-start;
+margin: 0px;
+
+${media.tablet`
+display: none;
+`}
+`
+
+const LogoMobile = styled.div`
+display: none;
+margin-bottom: 0px;
+flex-direction: row;
+justify-content: flex-start;
+margin: 0px;
+
+${media.tablet`
+display: flex;
+`}
+`
 
 const MenuItems = styled.ul`
 list-style-type: none;
@@ -44,12 +64,12 @@ const MenuIcon = styled.div`
   &:before,
   &:after,
   & > div {
-  background-color: black; //Todo Usare il colore grigietto che uso sempre, definendolo in file colori magari
+  background-color: ${colors.primaryColor}; //Todo Usare il colore grigietto che uso sempre, definendolo in file colori magari
   border-radius: 3px;
   content: '';
   display: block;
   height: 5px;
-  margin: 7px 0;
+  margin: 9px 0;
   transition: all .2s ease-in-out;
   }
 
@@ -72,7 +92,7 @@ export default () => {
       }
       mobileLogoImage: file(relativePath: { eq: "logo.png" }) {
         childImageSharp {
-          fixed(height: 40) {
+          fixed(height: 50) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -80,20 +100,15 @@ export default () => {
     }
   `)
 
-  const sources = [
-    logoImages.mobileLogoImage.childImageSharp.fixed,
-    {
-      ...logoImages.desktopLogoImage.childImageSharp.fixed,
-      media: `(min-width: 768px)`,
-    },
-  ]
 
   return ( 
     <Container>
-      <Logo>
-        <Img fixed ={logoImages.mobileLogoImage.childImageSharp.fixed} /> 
-        <Img fixed ={logoImages.desktopLogoImage.childImageSharp.fixed} /> 
-      </Logo>
+      <LogoDesktop>
+        <Img fixed={logoImages.desktopLogoImage.childImageSharp.fixed} /> 
+      </LogoDesktop>
+      <LogoMobile>
+        <Img fixed={logoImages.mobileLogoImage.childImageSharp.fixed} /> 
+      </LogoMobile>
       <MenuItems>
         <MenuItem>Home</MenuItem>
         <MenuItem>Progetti</MenuItem>
