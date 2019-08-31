@@ -1,9 +1,9 @@
 import React from "react"
 import styled from "styled-components"
-import media from "../Utils/mediaQueries";
+import media from "../Utils/mediaQueries"
 import { StaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-import colors from "../globals/colors";
+import colors from "../globals/colors"
 
 const Container = styled.nav`
 height: 220px; 
@@ -60,6 +60,7 @@ const MenuIcon = styled.div`
   margin: 1em;
   width: 40px;
   display: none;
+  z-index: 0;
 
   &:before,
   &:after,
@@ -78,15 +79,16 @@ const MenuIcon = styled.div`
   }
   
   &.active:before {
-    transform: translateY(.4em) rotate(135deg);
+    transform: translateY(.55em) rotate(135deg);
   }
   
   &.active:after {
-    transform: translateY(-.4em) rotate(-135deg);
+    transform: translateY(-.55em) rotate(-135deg);
   }
 
   ${media.tablet`
   display: inline;
+  z-index: 1;
   `}
 }`
 
@@ -95,14 +97,15 @@ class Navbar extends React.Component  {
 
   constructor() {
     super();
+    this.menuIconClick = this.menuIconClick.bind(this);
     this.state = {
-        menuVisible: false,
+      menuIconClicked: false,
     };
   }
 
-  showMenu(){
-    this.setState({ menuVisible: !this.state.menuVisible });
-    console.log(this.state)
+  menuIconClick(){
+    this.setState({ menuIconClicked: !this.state.menuIconClicked });
+    this.props.showMenu(this.state.menuIconClicked);  
   }
   
 
@@ -129,6 +132,7 @@ class Navbar extends React.Component  {
         `}
         render={data => (
           <Container>
+            
             <LogoDesktop>
               <Img fixed={data.desktopLogoImage.childImageSharp.fixed} /> 
             </LogoDesktop>
@@ -141,7 +145,7 @@ class Navbar extends React.Component  {
               <MenuItem>Chi Sono</MenuItem>
               <MenuItem>Visita il mio Blog</MenuItem>
             </MenuItems>
-            <MenuIcon onClick={this.showMenu} className={this.state.menuVisible ? 'active' : null}>
+            <MenuIcon onClick={this.menuIconClick} className={this.state.menuIconClicked ? 'active' : null}>
               <div></div>
             </MenuIcon>
           </Container>
