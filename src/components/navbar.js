@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import media from "../Utils/mediaQueries";
-import { useStaticQuery, graphql } from "gatsby"
+import { StaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import colors from "../globals/colors";
 
@@ -73,51 +73,85 @@ const MenuIcon = styled.div`
   transition: all .2s ease-in-out;
   }
 
+  &.active > div {
+    transform: scale(0);
+  }
+  
+  &.active:before {
+    transform: translateY(.4em) rotate(135deg);
+  }
+  
+  &.active:after {
+    transform: translateY(-.4em) rotate(-135deg);
+  }
 
   ${media.tablet`
   display: inline;
   `}
 }`
 
-export default () => {
 
-  const logoImages = useStaticQuery(graphql`
-    query {
-      desktopLogoImage: file(relativePath: { eq: "logo.png" }) {
-        childImageSharp {
-          fixed(height: 70) {
-            ...GatsbyImageSharpFixed
+class Navbar extends React.Component  {
+
+  constructor() {
+    super();
+    this.state = {
+        menuVisible: false,
+    };
+  }
+
+  showMenu(){
+    this.setState({ menuVisible: !this.state.menuVisible });
+    console.log(this.state)
+  }
+  
+
+  render(){   
+    return (
+      <StaticQuery
+        query={graphql`
+        query {
+          desktopLogoImage: file(relativePath: { eq: "logo.png" }) {
+            childImageSharp {
+              fixed(height: 70) {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
+          mobileLogoImage: file(relativePath: { eq: "logo.png" }) {
+            childImageSharp {
+              fixed(height: 50) {
+                ...GatsbyImageSharpFixed
+              }
+            }
           }
         }
-      }
-      mobileLogoImage: file(relativePath: { eq: "logo.png" }) {
-        childImageSharp {
-          fixed(height: 50) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-    }
-  `)
-
-
-  return ( 
-    <Container>
-      <LogoDesktop>
-        <Img fixed={logoImages.desktopLogoImage.childImageSharp.fixed} /> 
-      </LogoDesktop>
-      <LogoMobile>
-        <Img fixed={logoImages.mobileLogoImage.childImageSharp.fixed} /> 
-      </LogoMobile>
-      <MenuItems>
-        <MenuItem>Home</MenuItem>
-        <MenuItem>Progetti</MenuItem>
-        <MenuItem>Chi Sono</MenuItem>
-        <MenuItem>Visita il mio Blog</MenuItem>
-      </MenuItems>
-      <MenuIcon>
-        <div></div>
-      </MenuIcon>
-    </Container>
-  )
+        `}
+        render={data => (
+          <Container>
+            <LogoDesktop>
+              <Img fixed={data.desktopLogoImage.childImageSharp.fixed} /> 
+            </LogoDesktop>
+            <LogoMobile>
+              <Img fixed={data.mobileLogoImage.childImageSharp.fixed} /> 
+            </LogoMobile>
+            <MenuItems>
+              <MenuItem>Home</MenuItem>
+              <MenuItem>Progetti</MenuItem>
+              <MenuItem>Chi Sono</MenuItem>
+              <MenuItem>Visita il mio Blog</MenuItem>
+            </MenuItems>
+            <MenuIcon onClick={this.showMenu} className={this.state.menuVisible ? 'active' : null}>
+              <div></div>
+            </MenuIcon>
+          </Container>
+        )}
+      />
+    )
+  }
 }
+export default Navbar
+  
+
+
+
