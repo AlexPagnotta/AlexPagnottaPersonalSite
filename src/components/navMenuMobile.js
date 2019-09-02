@@ -1,19 +1,15 @@
 import React from "react"
 import styled from "styled-components"
 import media from "../Utils/mediaQueries"
+import colors from "../globals/colors"
 
 const OverlayContainer = styled.div`
 position:fixed;
 top:0;
 height:100%;
 width:100%;
-z-index:0;
-background-color: red;
-display: none;
-
-${media.phone`
-  display: block;
-`}
+z-index:1;
+background-color: ${colors.primaryColor};
 `
 
 const MobileMenuItems = styled.ul`

@@ -1,9 +1,10 @@
 import React from "react"
 import styled from "styled-components"
-import media from "../Utils/mediaQueries"
+import MediaQueries from "../Utils/mediaQueries"
 import { StaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import colors from "../globals/colors"
+import Media from 'react-media';
 
 const Container = styled.nav`
 height: 220px; 
@@ -12,7 +13,7 @@ justify-content: space-between;
 align-items: center;
 padding: 30px;
 
-${media.tablet`
+${MediaQueries.queries.tablet`
   height: 150px; 
 `}1
 `
@@ -23,7 +24,7 @@ flex-direction: row;
 justify-content: flex-start;
 margin: 0px;
 
-${media.tablet`
+${MediaQueries.queries.tablet`
 display: none;
 `}
 `
@@ -35,7 +36,7 @@ flex-direction: row;
 justify-content: flex-start;
 margin: 0px;
 
-${media.tablet`
+${MediaQueries.queries.tablet`
 display: flex;
 `}
 `
@@ -47,7 +48,7 @@ flex-direction: row;
 justify-content: flex-end;
 margin: 0px;
 
-${media.tablet`
+${MediaQueries.queries.tablet`
   display: none;
 `}
 `
@@ -65,7 +66,7 @@ const MenuIcon = styled.div`
   &:before,
   &:after,
   & > div {
-  background-color: ${colors.primaryColor}; //Todo Usare il colore grigietto che uso sempre, definendolo in file colori magari
+  background-color: ${colors.primaryColor};
   border-radius: 3px;
   content: '';
   display: block;
@@ -86,9 +87,15 @@ const MenuIcon = styled.div`
     transform: translateY(-.55em) rotate(-135deg);
   }
 
-  ${media.tablet`
+  &.active > div ,
+  &.active:after,
+  &.active:before{
+    background-color: ${colors.white};
+  }
+
+  ${MediaQueries.queries.tablet`
   display: inline;
-  z-index: 1;
+  z-index: 2;
   `}
 }`
 
@@ -98,16 +105,25 @@ class Navbar extends React.Component  {
   constructor() {
     super();
     this.menuIconClick = this.menuIconClick.bind(this);
+    this.resetMenuState = this.resetMenuState.bind(this);
     this.state = {
       menuIconClicked: false,
     };
   }
 
+  //Change menu state, and callback parent methods
   menuIconClick(){
     this.setState({ menuIconClicked: !this.state.menuIconClicked });
-    this.props.showMenu(this.state.menuIconClicked);  
+    this.props.toggleOverlayMenu()
   }
-  
+
+  //Change menu state, and callback parent methods
+  resetMenuState(){
+    if(this.state){
+      this.setState({ menuIconClicked: false }); 
+      this.props.resetOverlayMenu()
+    }
+  }
 
   render(){   
     return (
@@ -145,6 +161,13 @@ class Navbar extends React.Component  {
               <MenuItem>Chi Sono</MenuItem>
               <MenuItem>Visita il mio Blog</MenuItem>
             </MenuItems>
+            <Media
+              query={"(max-width: " + MediaQueries.sizes.tablet + "px)"}
+              onChange={matches =>
+                matches
+                ? null : this.resetMenuState()
+              }
+            />
             <MenuIcon onClick={this.menuIconClick} className={this.state.menuIconClicked ? 'active' : null}>
               <div></div>
             </MenuIcon>

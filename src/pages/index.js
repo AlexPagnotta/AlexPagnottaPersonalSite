@@ -7,21 +7,28 @@ class Index extends React.Component  {
 
   constructor() {
     super();
-    this.showMenu = this.showMenu.bind(this);
+    //this.showMenu = this.showMenu.bind(this);
     this.state = {
       menuVisible: false,
     };
   }
 
-  showMenu(){
+  
+  //Toggle the overlay menu
+  toggleOverlayMenu(){
     this.setState({ menuVisible: !this.state.menuVisible });
+  }
+
+  //Hide the overlay menu on responsive changes
+  resetOverlayMenu(){
+    this.setState({ menuVisible: false });
   }
 
   render(){
     return(
       <Layout>  
         {this.state.menuVisible && <NavMenuMobile></NavMenuMobile>}
-        <Navbar showMenu={this.showMenu}></Navbar>
+        <Navbar toggleOverlayMenu={this.toggleOverlayMenu.bind(this)} resetOverlayMenu={this.resetOverlayMenu.bind(this)}></Navbar> {/*Pass methods to children components*/}
         <h1>Test</h1>
         <h2>Test</h2>
         <h3>Test</h3>   
