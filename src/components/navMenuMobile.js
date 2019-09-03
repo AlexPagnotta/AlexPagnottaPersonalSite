@@ -15,13 +15,24 @@ background-color: ${colors.primaryColor};
 const MobileMenuItems = styled.ul`
 list-style-type: none;
 display: flex;
-flex-direction: row;
-justify-content: flex-end;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+align-content: center;
 margin: 0px;
+height: 100%;
 `
 const MobileMenuItem = styled.li`
-margin: 0px;
-margin-left: 30px;
+margin: 20px;
+padding: 10px;
+color: ${colors.white};
+
+
+& .active{
+  background-color : ${colors.accentColor};
+  color: ${colors.primaryColor};
+}
+
 `
 
 function NavMenuMobile() {
@@ -29,10 +40,10 @@ function NavMenuMobile() {
   return (
     <OverlayContainer>
         <MobileMenuItems>
-            {/*<MobileMenuItem>Home</MobileMenuItem>
+            <MobileMenuItem>Home</MobileMenuItem>
             <MobileMenuItem>Progetti</MobileMenuItem>
             <MobileMenuItem>Chi Sono</MobileMenuItem>
-            <MobileMenuItem>Visita il mio Blog</MobileMenuItem>*/}
+            <MobileMenuItem>Visita il mio Blog</MobileMenuItem>
         </MobileMenuItems>
     </OverlayContainer>
     

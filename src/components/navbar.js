@@ -147,8 +147,7 @@ class Navbar extends React.Component  {
         }
         `}
         render={data => (
-          <Container>
-            
+          <Container>            
             <LogoDesktop>
               <Img fixed={data.desktopLogoImage.childImageSharp.fixed} /> 
             </LogoDesktop>
