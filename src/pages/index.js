@@ -27,7 +27,7 @@ class Index extends React.Component  {
   render(){
     return(
       <Layout>  
-        {this.state.menuVisible && <NavMenuMobile></NavMenuMobile>}
+        <NavMenuMobile menuVisible={this.state.menuVisible}></NavMenuMobile>
         <Navbar toggleOverlayMenu={this.toggleOverlayMenu.bind(this)} resetOverlayMenu={this.resetOverlayMenu.bind(this)}></Navbar> {/*Pass methods to children components*/}
         <h1>Test</h1>
         <h2>Test</h2>

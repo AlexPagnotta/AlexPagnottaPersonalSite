@@ -10,8 +10,13 @@ height:100%;
 width:100%;
 z-index:1;
 background-color: ${colors.primaryColor};
--webkit-animation: slide-top 0.5s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
-animation: slide-top 0.5s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+
+&.show {
+  visibility: show;
+  opacity(100);
+  -webkit-animation: slide-top 0.5s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+  animation: slide-top 0.5s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+}
 
 &.hidden {
   visibility: hidden;
@@ -67,10 +72,10 @@ color: ${colors.white};
 
 `
 
-function NavMenuMobile() {
+function NavMenuMobile(props) {
 
   return (
-    <OverlayContainer>
+    <OverlayContainer className={props.menuVisible ? 'show' : 'hidden'}>
         <MobileMenuItems>
             <MobileMenuItem>Home</MobileMenuItem>
             <MobileMenuItem>Progetti</MobileMenuItem>
