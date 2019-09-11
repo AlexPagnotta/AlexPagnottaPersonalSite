@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import media from "../Utils/mediaQueries"
 import colors from "../globals/colors"
 
 const OverlayContainer = styled.div`
@@ -11,43 +10,16 @@ width:100%;
 z-index:1;
 background-color: ${colors.primaryColor};
 
-&.show {
-  visibility: show;
-  opacity(100);
-  -webkit-animation: slide-top 0.5s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
-  animation: slide-top 0.5s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
-}
+overflow-y: hidden;
+max-height: 100%;
+  
+transition-property: max-height;
+transition-duration: .5s;
+transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 
 &.hidden {
-  visibility: hidden;
-  opacity(0);
-  -webkit-animation: slide-top 0.5s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
-  animation: slide-top 0.5s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
-}
-
-//Ease in Animation 
-@-webkit-keyframes slide-top {
-  0% {
-    -webkit-transform: translateY(-100vh);
-            transform: translateY(-100vh);
-  }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-}
-@keyframes slide-top {
-  0% {
-    -webkit-transform: translateY(-100vh);
-            transform: translateY(-100vh);
-  }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-}
-          
-`
+  max-height: 0;
+}`
 
 const MobileMenuItems = styled.ul`
 list-style-type: none;
@@ -75,7 +47,7 @@ color: ${colors.white};
 function NavMenuMobile(props) {
 
   return (
-    <OverlayContainer className={props.menuVisible ? 'show' : 'hidden'}>
+    <OverlayContainer className={props.menuVisible ? null : 'hidden'}>
         <MobileMenuItems>
             <MobileMenuItem>Home</MobileMenuItem>
             <MobileMenuItem>Progetti</MobileMenuItem>
