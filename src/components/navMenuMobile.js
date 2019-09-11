@@ -41,7 +41,6 @@ color: ${colors.white};
   background-color : ${colors.accentColor};
   color: ${colors.primaryColor};
 }
-
 `
 
 function NavMenuMobile(props) {

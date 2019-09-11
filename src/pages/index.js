@@ -2,12 +2,12 @@ import React from "react"
 import Layout from "../components/layout"
 import Navbar from "../components/navbar"
 import NavMenuMobile from "../components/navMenuMobile"
+import Homepage from "../components/homepage";
 
 class Index extends React.Component  {
 
   constructor() {
     super();
-    //this.showMenu = this.showMenu.bind(this);
     this.state = {
       menuVisible: false,
     };
@@ -29,9 +29,7 @@ class Index extends React.Component  {
       <Layout>  
         <NavMenuMobile menuVisible={this.state.menuVisible}></NavMenuMobile>
         <Navbar toggleOverlayMenu={this.toggleOverlayMenu.bind(this)} resetOverlayMenu={this.resetOverlayMenu.bind(this)}></Navbar> {/*Pass methods to children components*/}
-        <h1>Test</h1>
-        <h2>Test</h2>
-        <h3>Test</h3>   
+        <Homepage></Homepage>
       </Layout>
     );
    }

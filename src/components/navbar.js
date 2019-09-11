@@ -62,7 +62,8 @@ const MenuIcon = styled.div`
   width: 40px;
   display: none;
   z-index: 0;
-
+  cursor: pointer;
+  
   &:before,
   &:after,
   & > div {
