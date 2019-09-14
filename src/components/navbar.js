@@ -7,6 +7,13 @@ import colors from "../globals/colors"
 import Media from 'react-media';
 
 const Container = styled.nav`
+position: fixed;
+background-color:  ${colors.white};
+width: 100%;
+max-width: 1220px;
+`
+
+const NavbarContainer = styled.nav`
 height: 220px; 
 display: flex;
 justify-content: space-between;
@@ -15,7 +22,7 @@ padding: 30px;
 
 ${MediaQueries.queries.tablet`
   height: 150px; 
-`}1
+`}
 `
 const LogoDesktop = styled.div`
 display: flex;
@@ -61,7 +68,6 @@ const MenuIcon = styled.div`
   margin: 1em;
   width: 40px;
   display: none;
-  z-index: 0;
   cursor: pointer;
   
   &:before,
@@ -96,7 +102,6 @@ const MenuIcon = styled.div`
 
   ${MediaQueries.queries.tablet`
   display: inline;
-  z-index: 2;
   `}
 }`
 
@@ -149,28 +154,30 @@ class Navbar extends React.Component  {
         `}
         render={data => (
           <Container>            
-            <LogoDesktop>
-              <Img fixed={data.desktopLogoImage.childImageSharp.fixed} /> 
-            </LogoDesktop>
-            <LogoMobile>
-              <Img fixed={data.mobileLogoImage.childImageSharp.fixed} /> 
-            </LogoMobile>
-            <MenuItems>
-              <MenuItem>Home</MenuItem>
-              <MenuItem>Progetti</MenuItem>
-              <MenuItem>Chi Sono</MenuItem>
-              <MenuItem>Visita il mio Blog</MenuItem>
-            </MenuItems>
-            <Media
-              query={"(max-width: " + MediaQueries.sizes.tablet + "px)"}
-              onChange={matches =>
-                matches
-                ? null : this.resetMenuState()
-              }
-            />
-            <MenuIcon onClick={this.menuIconClick} className={this.state.menuIconClicked ? 'active' : null}>
-              <div></div>
-            </MenuIcon>
+            <NavbarContainer>            
+              <LogoDesktop>
+                <Img fixed={data.desktopLogoImage.childImageSharp.fixed} /> 
+              </LogoDesktop>
+              <LogoMobile>
+                <Img fixed={data.mobileLogoImage.childImageSharp.fixed} /> 
+              </LogoMobile>
+              <MenuItems>
+                <MenuItem>Home</MenuItem>
+                <MenuItem>Progetti</MenuItem>
+                <MenuItem>Chi Sono</MenuItem>
+                <MenuItem>Visita il mio Blog</MenuItem>
+              </MenuItems>
+              <Media
+                query={"(max-width: " + MediaQueries.sizes.tablet + "px)"}
+                onChange={matches =>
+                  matches
+                  ? null : this.resetMenuState()
+                }
+              />
+              <MenuIcon onClick={this.menuIconClick} className={this.state.menuIconClicked ? 'active' : null}>
+                <div></div>
+              </MenuIcon>
+            </NavbarContainer>
           </Container>
         )}
       />

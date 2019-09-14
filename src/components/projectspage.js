@@ -4,7 +4,7 @@ import colors from "../globals/colors"
 import MediaQueries from "../Utils/mediaQueries"
 
 
-const HomepageContainer = styled.div`
+const ProjectsContainer = styled.div`
 padding-top: 220px;
 width: 100%;
 height:100vh;
@@ -47,32 +47,33 @@ width: 300px;
 height: 300px;
 `
 
-const ScrollLinkText = styled.h4`
+const LinkText = styled.h4`
 text-decoration: underline;
+display: inline-block;
+margin-right: 50px;
 `
 
 const NoBreakLineSpan = styled.span`
 white-space:nowrap;
 `
 
-function Homepage() {
+function ProjectsPage() {
     return (
-        <HomepageContainer>
+        <ProjectsContainer>
             <TextContainer>
-                <h1>Ciao, sono <NoBreakLineSpan>Alex Pagnotta |</NoBreakLineSpan></h1>         
+                <h1>I Miei <NoBreakLineSpan>Progetti |</NoBreakLineSpan></h1>      
                 <p>
-                <mark> Ho 21 anni </mark> , vivo in Umbria, e da 2 anni lavoro come <mark> sviluppatore </mark>, principalmente in <mark> c# </mark>, sia in ambiente WinForm che MVC Asp.Net.<br></br><br></br>
-                Ho inoltre sviluppato alcune <mark> app Android </mark> nel tempo libero, oltre ad aver sempre avuto una passione per quello che riguarda la <mark> grafica e il design. </mark>
-                </p> 
-                <ScrollLinkText>
-                Scorri per visualizzare il resto del sito.
-                </ScrollLinkText>
+                Questi sono i miei progetti più recenti, sia per quanto riguarda la <mark>programmazione</mark>, che per quanto riguarda la <mark>progettazione grafica di UI/UX e loghi.</mark><br></br><br></br>
+                Puoi inoltre visitare i miei profili GitHub e Behance per vedere nel dettaglio tutti i miei progetti.
+                </p>    
+                <LinkText>GitHub</LinkText>
+                <LinkText>Behance</LinkText>
             </TextContainer>
             <ProfileImageContainer>    
                 <ProfileImage>    
                 </ProfileImage>    
             </ProfileImageContainer>            
-        </HomepageContainer>
+        </ProjectsContainer>
     )
   }
-  export default Homepage
+  export default ProjectsPage
