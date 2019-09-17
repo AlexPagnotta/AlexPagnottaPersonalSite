@@ -4,7 +4,7 @@ import colors from "../globals/colors"
 import MediaQueries from "../Utils/mediaQueries"
 
 
-const ProjectsContainer = styled.div`
+const AboutContainer = styled.div`
 padding-top: 220px;
 width: 100%;
 height:100vh;
@@ -56,23 +56,25 @@ const NoBreakLineSpan = styled.span`
 white-space:nowrap;
 `
 
-function ProjectsPage() {
+function AboutPage() {
     return (
-        <ProjectsContainer>
+        <AboutContainer>
             <TextContainer>
-                <h1>I Miei <NoBreakLineSpan>Progetti |</NoBreakLineSpan></h1>      
+                <h1><NoBreakLineSpan>Chi Sono? |</NoBreakLineSpan></h1>      
                 <p>
-                Questi sono i miei progetti più recenti, sia per quanto riguarda la <mark>programmazione</mark>, che per quanto riguarda la <mark>progettazione grafica di UI/UX e loghi.</mark><br></br><br></br>
-                Puoi inoltre visitare i miei profili GitHub e Behance per vedere nel dettaglio tutti i miei progetti.
-                </p>    
-                <LinkText><a href="https://www.html.it/">Github</a></LinkText>
-                <LinkText><a href="https://www.html.it/">Behance</a></LinkText>
+                Come già detto, sono <mark> Alex Pagnotta, ho 21 anni,</mark> e sin da piccolo ho sempre avuto una grande passione per tutto quello che riguarda l'informatica e la programmazione, passione che da 2 anni é diventata il mio lavoro.
+                Qua sotto trovi i <mark> link ai miei profili </mark>LinkedIn, Instagram e alla mia email per contattarmi.
+                Sempre in questa pagina puoi inoltre <mark> consultare il mio curriculum, </mark> in versione parziale qua sul sito, o completa scaricandolo in PDF.
+                </p>
+                <LinkText><a href="https://www.html.it/">Linkedin</a></LinkText>
+                <LinkText><a href="https://www.html.it/">Instagram</a></LinkText>
+                <LinkText><a href="https://www.html.it/">Email</a></LinkText>
             </TextContainer>
             <ProfileImageContainer>    
                 <ProfileImage>    
                 </ProfileImage>    
             </ProfileImageContainer>            
-        </ProjectsContainer>
+        </AboutContainer>
     )
   }
-  export default ProjectsPage
+  export default AboutPage

@@ -4,6 +4,7 @@ import Navbar from "../components/navbar"
 import NavMenuMobile from "../components/navMenuMobile"
 import Homepage from "../components/homepage";
 import ProjectsPage from "../components/projectspage";
+import AboutPage from "../components/aboutpage";
 
 class Index extends React.Component  {
 
@@ -32,6 +33,7 @@ class Index extends React.Component  {
         <Navbar toggleOverlayMenu={this.toggleOverlayMenu.bind(this)} resetOverlayMenu={this.resetOverlayMenu.bind(this)}></Navbar> {/*Pass methods to children components*/}
         <Homepage></Homepage>
         <ProjectsPage></ProjectsPage>
+        <AboutPage></AboutPage>
       </Layout>
     );
    }
