@@ -6,19 +6,68 @@ import Img from "gatsby-image"
 import colors from "../globals/colors"
 import Media from 'react-media';
 
-const Container = styled.nav`
-position: fixed;
+const MenuIconCointainer = styled.div`
+margin-right: 30px;
+z-index: 3;
+position:fixed;
+right: 0;
+height: 150px;
+display: flex;
+align-items: center;
+`
+
+const MenuIcon = styled.div`
+  display: none;
+  cursor: pointer;
+  &:before,
+  &:after,
+  & > div {
+  width: 40px;
+  background-color: ${colors.primaryColor};
+  border-radius: 3px;
+  content: '';
+  display: block;
+  height: 5px;
+  margin: 9px 0;
+  transition: all .2s ease-in-out;
+  
+  }
+
+  &.active > div {
+    transform: scale(0);
+  }
+  
+  &.active:before {
+    transform: translateY(.55em) rotate(135deg);
+  }
+  
+  &.active:after {
+    transform: translateY(-.55em) rotate(-135deg);
+  }
+
+  &.active > div ,
+  &.active:after,
+  &.active:before{
+    background-color: ${colors.white};
+  }
+
+  ${MediaQueries.queries.tablet`
+  display: inline;
+  `}
+}`
+
+const NavbarContainer = styled.nav`
 background-color:  ${colors.white};
 width: 100%;
 max-width: 1220px;
-`
-
-const NavbarContainer = styled.nav`
+position: fixed;
 height: 220px; 
+width: 100%;
 display: flex;
 justify-content: space-between;
 align-items: center;
 padding: 30px;
+z-index: 1;
 
 ${MediaQueries.queries.tablet`
   height: 150px; 
@@ -63,47 +112,6 @@ ${MediaQueries.queries.tablet`
 const MenuItem = styled.li`
 margin: 0px;
 margin-left: 30px;`
-
-const MenuIcon = styled.div`
-  margin: 1em;
-  width: 40px;
-  display: none;
-  cursor: pointer;
-  
-  &:before,
-  &:after,
-  & > div {
-  background-color: ${colors.primaryColor};
-  border-radius: 3px;
-  content: '';
-  display: block;
-  height: 5px;
-  margin: 9px 0;
-  transition: all .2s ease-in-out;
-  }
-
-  &.active > div {
-    transform: scale(0);
-  }
-  
-  &.active:before {
-    transform: translateY(.55em) rotate(135deg);
-  }
-  
-  &.active:after {
-    transform: translateY(-.55em) rotate(-135deg);
-  }
-
-  &.active > div ,
-  &.active:after,
-  &.active:before{
-    background-color: ${colors.white};
-  }
-
-  ${MediaQueries.queries.tablet`
-  display: inline;
-  `}
-}`
 
 
 class Navbar extends React.Component  {
@@ -153,7 +161,12 @@ class Navbar extends React.Component  {
         }
         `}
         render={data => (
-          <Container>            
+          <div>  
+            <MenuIconCointainer>        
+              <MenuIcon onClick={this.menuIconClick} className={this.state.menuIconClicked ? 'active' : null}>
+                <div></div>
+              </MenuIcon>     
+            </MenuIconCointainer>                                   
             <NavbarContainer>            
               <LogoDesktop>
                 <Img fixed={data.desktopLogoImage.childImageSharp.fixed} /> 
@@ -174,11 +187,9 @@ class Navbar extends React.Component  {
                   ? null : this.resetMenuState()
                 }
               />
-              <MenuIcon onClick={this.menuIconClick} className={this.state.menuIconClicked ? 'active' : null}>
-                <div></div>
-              </MenuIcon>
+              
             </NavbarContainer>
-          </Container>
+          </div>
         )}
       />
     )

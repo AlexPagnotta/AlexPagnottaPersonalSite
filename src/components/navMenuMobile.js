@@ -8,7 +8,7 @@ top:0;
 height:100%;
 width:100%;
 background-color: ${colors.primaryColor};
-
+z-index: 2;
 overflow-y: hidden;
 max-height: 100%;
   
