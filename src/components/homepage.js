@@ -8,7 +8,6 @@ const HomepageContainer = styled.div`
 padding-top: 220px;
 width: 100%;
 height:100vh;
-
 /* Grid styles */
 display: grid;
 align-items: flex-start;
@@ -21,6 +20,8 @@ height:auto;
 `
 const TextContainer = styled.div`
 padding: 30px;
+height: 100%;
+overflow-y: scroll;
 
 ${MediaQueries.queries.tablet`
 padding-top: 50px; 
