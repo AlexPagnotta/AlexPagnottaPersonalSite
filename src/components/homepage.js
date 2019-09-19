@@ -3,7 +3,6 @@ import styled from "styled-components"
 import colors from "../globals/colors"
 import MediaQueries from "../Utils/mediaQueries"
 
-
 const HomepageContainer = styled.div`
 padding-top: 220px;
 width: 100%;
@@ -21,7 +20,6 @@ height:auto;
 const TextContainer = styled.div`
 padding: 30px;
 height: 100%;
-overflow-y: scroll;
 
 ${MediaQueries.queries.tablet`
 padding-top: 50px; 

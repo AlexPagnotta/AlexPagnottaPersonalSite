@@ -21,7 +21,6 @@ height:auto;
 `
 const TextContainer = styled.div`
 padding: 30px;
-overflow-y: scroll;
 
 ${MediaQueries.queries.tablet`
 padding-top: 50px; 
