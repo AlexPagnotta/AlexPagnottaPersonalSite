@@ -111,7 +111,12 @@ ${MediaQueries.queries.tablet`
 
 const MenuItem = styled.li`
 margin: 0px;
-margin-left: 30px;`
+margin-left: 30px;
+
+&.active{
+  font-weight:bold;
+}
+`
 
 
 class Navbar extends React.Component  {
@@ -121,8 +126,8 @@ class Navbar extends React.Component  {
     this.menuIconClick = this.menuIconClick.bind(this);
     this.resetMenuState = this.resetMenuState.bind(this);
     this.state = {
-      menuIconClicked: false,
-    };
+      menuIconClicked: false
+    }; 
   }
 
   //Change menu state, and callback parent methods
@@ -175,9 +180,9 @@ class Navbar extends React.Component  {
                 <Img fixed={data.mobileLogoImage.childImageSharp.fixed} /> 
               </LogoMobile>
               <MenuItems>
-                <MenuItem>Home</MenuItem>
-                <MenuItem>Progetti</MenuItem>
-                <MenuItem>Chi Sono</MenuItem>
+                <MenuItem className={this.props.sectionActive == 0 ? 'active' : null}>Home</MenuItem>
+                <MenuItem className={this.props.sectionActive  == 1 ? 'active' : null}>Progetti</MenuItem>
+                <MenuItem className={this.props.sectionActive  == 2 ? 'active' : null}>Chi Sono</MenuItem>
                 <MenuItem>Visita il mio Blog</MenuItem>
               </MenuItems>
               <Media

@@ -37,7 +37,7 @@ class Index extends React.Component  {
     return(
     <Layout>     
       <NavMenuMobile sectionActive={this.state.sectionActive} menuVisible={this.state.menuVisible}></NavMenuMobile>
-      <Navbar toggleOverlayMenu={this.toggleOverlayMenu.bind(this)} resetOverlayMenu={this.resetOverlayMenu.bind(this)}></Navbar> {/*Pass methods to children components*/}         
+      <Navbar sectionActive={this.state.sectionActive}  toggleOverlayMenu={this.toggleOverlayMenu.bind(this)} resetOverlayMenu={this.resetOverlayMenu.bind(this)}></Navbar> {/*Pass methods to children components*/}         
       <ReactFullpage
           afterLoad={this.afterLoad.bind(this)}
           render={({ state, fullpageApi }) => {
