@@ -3,12 +3,11 @@ import styled from "styled-components"
 import colors from "../globals/colors"
 import MediaQueries from "../Utils/mediaQueries"
 
-
 const AboutContainer = styled.div`
 padding-top: 220px;
 width: 100%;
 
-/* Grid styles */
+/* Grid */
 display: grid;
 align-items: flex-start;
 grid-template-columns: repeat(auto-fit, minmax(384px, 1fr));

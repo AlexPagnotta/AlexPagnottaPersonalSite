@@ -6,6 +6,7 @@ import Homepage from "../components/homepage";
 import ProjectsPage from "../components/projectspage";
 import AboutPage from "../components/aboutpage";
 import ReactFullpage from '@fullpage/react-fullpage';
+import styled from "styled-components"
 
 class Index extends React.Component  {
 
@@ -16,7 +17,6 @@ class Index extends React.Component  {
     };
   }
 
-  
   //Toggle the overlay menu
   toggleOverlayMenu(){
     this.setState({ menuVisible: !this.state.menuVisible });
@@ -27,25 +27,34 @@ class Index extends React.Component  {
     this.setState({ menuVisible: false });
   }
 
+  //Fullpage callback event on section scrolled
+  afterLoad(origin, destination, direction) {
+    console.log("After load: " + destination.index);
+  }
+ 
   render(){
     return(
     <Layout>     
       <NavMenuMobile menuVisible={this.state.menuVisible}></NavMenuMobile>
       <Navbar toggleOverlayMenu={this.toggleOverlayMenu.bind(this)} resetOverlayMenu={this.resetOverlayMenu.bind(this)}></Navbar> {/*Pass methods to children components*/}         
       <ReactFullpage
-          render={comp => (
-            <ReactFullpage.Wrapper>
-              <div className="section">
-            <Homepage></Homepage>      
-            </div>
-            <div className="section">
-            <ProjectsPage></ProjectsPage> 
-            </div>
-            <div className="section">
-            <AboutPage></AboutPage>   
-            </div>
-            </ReactFullpage.Wrapper>
-          )}/>
+          afterLoad={this.afterLoad.bind(this)}
+          render={({ state, fullpageApi }) => {
+            return (
+              <ReactFullpage.Wrapper>
+                <div className="section">
+                  <Homepage></Homepage>      
+                </div>
+                <div className="section">
+                < ProjectsPage></ProjectsPage> 
+                </div>
+                <div className="section">
+                  <AboutPage></AboutPage>   
+                </div>
+              </ReactFullpage.Wrapper>
+            );
+          }}
+        />
       </Layout>  
     );
    }
