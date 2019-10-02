@@ -14,6 +14,7 @@ class Index extends React.Component  {
     super();
     this.state = {
       menuVisible: false,
+      sectionActive: 0
     };
   }
 
@@ -29,13 +30,13 @@ class Index extends React.Component  {
 
   //Fullpage callback event on section scrolled
   afterLoad(origin, destination, direction) {
-    console.log("After load: " + destination.index);
+    this.setState({ sectionActive: destination.index });
   }
  
   render(){
     return(
     <Layout>     
-      <NavMenuMobile menuVisible={this.state.menuVisible}></NavMenuMobile>
+      <NavMenuMobile sectionActive={this.state.sectionActive} menuVisible={this.state.menuVisible}></NavMenuMobile>
       <Navbar toggleOverlayMenu={this.toggleOverlayMenu.bind(this)} resetOverlayMenu={this.resetOverlayMenu.bind(this)}></Navbar> {/*Pass methods to children components*/}         
       <ReactFullpage
           afterLoad={this.afterLoad.bind(this)}
