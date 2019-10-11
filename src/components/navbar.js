@@ -38,11 +38,11 @@ const MenuIcon = styled.div`
   }
   
   &.active:before {
-    transform: translateY(.55em) rotate(135deg);
+    transform: translateY(.90em) rotate(-135deg);
   }
   
   &.active:after {
-    transform: translateY(-.55em) rotate(-135deg);
+    transform: translateY(-.50em) rotate(135deg);
   }
 
   &.active > div ,
@@ -112,6 +112,7 @@ ${MediaQueries.queries.tablet`
 const MenuItem = styled.li`
 margin: 0px;
 margin-left: 30px;
+cursor: pointer;
 
 &.active{
   font-weight:bold;
@@ -180,9 +181,9 @@ class Navbar extends React.Component  {
                 <Img fixed={data.mobileLogoImage.childImageSharp.fixed} /> 
               </LogoMobile>
               <MenuItems>
-                <MenuItem className={this.props.sectionActive == 0 ? 'active' : null}>Home</MenuItem>
-                <MenuItem className={this.props.sectionActive  == 1 ? 'active' : null}>Progetti</MenuItem>
-                <MenuItem className={this.props.sectionActive  == 2 ? 'active' : null}>Chi Sono</MenuItem>
+                <MenuItem onClick={ () => this.props.goToSection(1) } className={this.props.sectionActive == 0 ? 'active' : null}>Home</MenuItem>
+                <MenuItem onClick={ () => this.props.goToSection(2) } className={this.props.sectionActive  == 1 ? 'active' : null}>Progetti</MenuItem>
+                <MenuItem onClick={ () => this.props.goToSection(3) } className={this.props.sectionActive  == 2 ? 'active' : null}>Chi Sono</MenuItem>
                 <MenuItem>Visita il mio Blog</MenuItem>
               </MenuItems>
               <Media

@@ -34,7 +34,7 @@ const MobileMenuItem = styled.li`
 margin: 20px;
 padding: 10px;
 color: ${colors.white};
-
+cursor: pointer;
 
 &.active{
   background-color : ${colors.accentColor};
@@ -47,9 +47,9 @@ function NavMenuMobile(props) {
   return (
     <OverlayContainer className={props.menuVisible ? null : 'hidden'}>
         <MobileMenuItems>
-            <MobileMenuItem className={props.sectionActive == 0 ? 'active' : null}>Home</MobileMenuItem>
-            <MobileMenuItem className={props.sectionActive == 1 ? 'active' : null}>Progetti</MobileMenuItem>
-            <MobileMenuItem className={props.sectionActive == 2 ? 'active' : null}>Chi Sono</MobileMenuItem>
+            <MobileMenuItem onClick={ () => props.goToSection(1) } className={props.sectionActive == 0 ? 'active' : null}>Home</MobileMenuItem>
+            <MobileMenuItem onClick={ () => props.goToSection(2) } className={props.sectionActive == 1 ? 'active' : null}>Progetti</MobileMenuItem>
+            <MobileMenuItem onClick={ () => props.goToSection(3) } className={props.sectionActive == 2 ? 'active' : null}>Chi Sono</MobileMenuItem>
             <MobileMenuItem>Visita il mio Blog</MobileMenuItem>
         </MobileMenuItems>
     </OverlayContainer>

@@ -12,6 +12,7 @@ class Index extends React.Component  {
 
   constructor() {
     super();
+    this.navbar = React.createRef();
     this.state = {
       menuVisible: false,
       sectionActive: 0
@@ -32,19 +33,28 @@ class Index extends React.Component  {
   afterLoad(origin, destination, direction) {
     this.setState({ sectionActive: destination.index });
   }
+
+  goToSection(index) {
+    window.fullpage_api.moveTo(index, 0);
+    this.navbar.current.menuIconClick();
+  }
+
+  moveSectionDown(index) {
+    window.fullpage_api.moveSectionDown();
+  }
  
   render(){
     return(
     <Layout>     
-      <NavMenuMobile sectionActive={this.state.sectionActive} menuVisible={this.state.menuVisible}></NavMenuMobile>
-      <Navbar sectionActive={this.state.sectionActive}  toggleOverlayMenu={this.toggleOverlayMenu.bind(this)} resetOverlayMenu={this.resetOverlayMenu.bind(this)}></Navbar> {/*Pass methods to children components*/}         
+      <NavMenuMobile goToSection={this.goToSection.bind(this)} sectionActive={this.state.sectionActive} menuVisible={this.state.menuVisible}></NavMenuMobile>
+      <Navbar ref={this.navbar} goToSection={this.goToSection.bind(this)} sectionActive={this.state.sectionActive}  toggleOverlayMenu={this.toggleOverlayMenu.bind(this)} resetOverlayMenu={this.resetOverlayMenu.bind(this)}></Navbar> {/*Pass methods to children components*/}         
       <ReactFullpage
           afterLoad={this.afterLoad.bind(this)}
           render={({ state, fullpageApi }) => {
             return (
               <ReactFullpage.Wrapper>
                 <div className="section">
-                  <Homepage></Homepage>      
+                  <Homepage moveSectionDown={this.moveSectionDown.bind(this)}></Homepage>      
                 </div>
                 <div className="section">
                 < ProjectsPage></ProjectsPage> 
