@@ -34,9 +34,11 @@ class Index extends React.Component  {
     this.setState({ sectionActive: destination.index });
   }
 
-  goToSection(index) {
+  goToSection(index, isMobile) {
     window.fullpage_api.moveTo(index, 0);
-    this.navbar.current.menuIconClick();
+    if(isMobile){
+      this.navbar.current.menuIconClick();
+    }
   }
 
   moveSectionDown(index) {
