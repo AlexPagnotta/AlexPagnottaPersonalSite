@@ -6,10 +6,12 @@ import colors from "../globals/colors"
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
+    background-color: ${colors.baseColor};
   }
 
   mark{
     background-color: ${colors.accentColor};
+    color: ${colors.primaryColor};
   }
 `
 

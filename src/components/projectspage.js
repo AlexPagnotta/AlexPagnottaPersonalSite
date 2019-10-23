@@ -25,24 +25,11 @@ padding-top: 50px;
 padding-bottom: 100px;
 `}
 `
-const ProfileImageContainer = styled.div`
+const ProfileImage = styled.div`
 padding: 30px;
-background-color: ${colors.white};
+background-color: ${colors.accentColor};
 width: 100%;
 height: 100%;
-display: flex;
-align-items: center;
-justify-content: center;
-
-${MediaQueries.queries.tablet`
-padding-bottom: 100px;
-`}
-`
-
-const ProfileImage = styled.div`
-background-color: ${colors.accentColor};
-width: 300px;
-height: 300px;
 `
 
 const LinkText = styled.h4`
@@ -60,16 +47,14 @@ function ProjectsPage() {
             <TextContainer>
                 <h1>I Miei <NoBreakLineSpan>Progetti |</NoBreakLineSpan></h1>      
                 <p>
-                Questi sono i miei progetti più recenti, sia per quanto riguarda la <mark>programmazione</mark>, che per quanto riguarda la <mark>progettazione grafica di UI/UX e loghi.</mark><br></br><br></br>
+                Questi sono i miei progetti più recenti, sia per quanto riguarda la <mark>programmazione</mark>, che per quanto riguarda la <mark>progettazione grafica di UI/UX e loghi.</mark><br/>
                 Puoi inoltre visitare i miei profili GitHub e Behance per vedere nel dettaglio tutti i miei progetti.
                 </p>    
                 <LinkText><a href="https://www.html.it/">Github</a></LinkText>
                 <LinkText><a href="https://www.html.it/">Behance</a></LinkText>
             </TextContainer>
-            <ProfileImageContainer>    
-                <ProfileImage>    
-                </ProfileImage>    
-            </ProfileImageContainer>            
+            <ProfileImage>     
+            </ProfileImage>            
         </ProjectsContainer>
     )
   }

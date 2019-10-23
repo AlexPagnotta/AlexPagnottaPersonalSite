@@ -25,24 +25,11 @@ padding-top: 50px;
 padding-bottom: 100px;
 `}
 `
-const ProfileImageContainer = styled.div`
+const ProfileImage = styled.div`
 padding: 30px;
-background-color: ${colors.white};
+background-color: ${colors.accentColor};
 width: 100%;
 height: 100%;
-display: flex;
-align-items: center;
-justify-content: center;
-
-${MediaQueries.queries.tablet`
-padding-bottom: 100px;
-`}
-`
-
-const ProfileImage = styled.div`
-background-color: ${colors.accentColor};
-width: 300px;
-height: 300px;
 `
 
 const LinkText = styled.h4`
@@ -60,18 +47,16 @@ function AboutPage() {
             <TextContainer>
                 <h1><NoBreakLineSpan>Chi Sono? |</NoBreakLineSpan></h1>      
                 <p>
-                Come già detto, sono <mark> Alex Pagnotta, ho 21 anni,</mark> e sin da piccolo ho sempre avuto una grande passione per tutto quello che riguarda l'informatica e la programmazione, passione che da 2 anni é diventata il mio lavoro.
-                Qua sotto trovi i <mark> link ai miei profili </mark>LinkedIn, Instagram e alla mia email per contattarmi.
+                Come già detto, sono <mark> Alex Pagnotta, ho 21 anni,</mark> e sin da piccolo ho sempre avuto una grande passione per tutto quello che riguarda l'informatica e la programmazione, passione che da 2 anni é diventata il mio lavoro.<br/>
+                Qua sotto trovi i <mark> link ai miei profili </mark>LinkedIn, Instagram e alla mia email per contattarmi.<br/>
                 Sempre in questa pagina puoi inoltre <mark> consultare il mio curriculum, </mark> in versione parziale qua sul sito, o completa scaricandolo in PDF.
                 </p>
                 <LinkText><a href="https://www.html.it/">Linkedin</a></LinkText>
                 <LinkText><a href="https://www.html.it/">Instagram</a></LinkText>
                 <LinkText><a href="https://www.html.it/">Email</a></LinkText>
             </TextContainer>
-            <ProfileImageContainer>    
-                <ProfileImage>    
-                </ProfileImage>    
-            </ProfileImageContainer>            
+            <ProfileImage>      
+            </ProfileImage>            
         </AboutContainer>
     )
   }

@@ -1,8 +1,8 @@
 const colors = {
-    primaryColor: '#444444',
+    primaryColor:   '#232323',
     accentColor: '#FFE7F2',
-    white: '#FFFFFF'
+    baseColor:   '#FFFFFF'
   };
 
-  
+
   export default colors;

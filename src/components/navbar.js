@@ -28,27 +28,23 @@ const MenuIcon = styled.div`
   content: '';
   display: block;
   height: 5px;
-  margin: 9px 0;
+  margin: 20px 0;
   transition: all .2s ease-in-out;
   
   }
-
-  &.active > div {
-    transform: scale(0);
-  }
   
   &.active:before {
-    transform: translateY(.90em) rotate(-135deg);
+    transform: translateY(13px) rotate(45deg);
   }
   
   &.active:after {
-    transform: translateY(-.50em) rotate(135deg);
+    transform: translateY(-13px) rotate(-45deg);
   }
 
   &.active > div ,
   &.active:after,
   &.active:before{
-    background-color: ${colors.white};
+    background-color: ${colors.baseColor};
   }
 
   ${MediaQueries.queries.tablet`
@@ -57,7 +53,7 @@ const MenuIcon = styled.div`
 }`
 
 const NavbarContainer = styled.nav`
-background-color:  ${colors.white};
+background-color:  ${colors.baseColor};
 width: 100%;
 max-width: 1220px;
 position: fixed;
@@ -115,7 +111,7 @@ margin-left: 30px;
 cursor: pointer;
 
 &.active{
-  font-weight:bold;
+  font-weight:900;
 }
 `
 
@@ -170,7 +166,6 @@ class Navbar extends React.Component  {
           <div>  
             <MenuIconCointainer>        
               <MenuIcon onClick={this.menuIconClick} className={this.state.menuIconClicked ? 'active' : null}>
-                <div></div>
               </MenuIcon>     
             </MenuIconCointainer>                                   
             <NavbarContainer>            
