@@ -2,9 +2,9 @@ import Typography from "typography"
 import colors from "../globals/colors"
 
 const typography = new Typography({
-  baseFontSize: "22px",
-  baseLineHeight: 1.666,
-  scaleRatio: 2.5,
+  baseFontSize: "19px",
+  baseLineHeight: 1.5,
+  scaleRatio: 2.3,
   headerFontFamily: ["Bree Serif", "400"],
   bodyFontFamily: ["Assistant", "400"],
   googleFonts: [
@@ -22,7 +22,12 @@ const typography = new Typography({
       ],
     }
   ], 
-  overrideStyles: ({}, options) => ({
+  overrideStyles: ({scale}, options) => ({
+    "@media only screen and (max-width:38rem)": {
+      html: {
+        ...scale(1/10),
+      },
+    },
     body: {
       color: colors.primaryColor
     },

@@ -6,7 +6,6 @@ import MediaQueries from "../Utils/mediaQueries"
 const HomepageContainer = styled.div`
 padding-top: 220px;
 width: 100%;
-height: 100vh;
 
 /* Grid */
 display: grid;
