@@ -23,9 +23,14 @@ const typography = new Typography({
     }
   ], 
   overrideStyles: ({scale}, options) => ({
-    "@media only screen and (max-width:38rem)": { //TODO Replace with mediaquery
+    "@media only screen and (max-width: 768px)": { //TODO Replace with mediaquery
       html: {
         ...scale(1/10),
+      },
+    },
+    "@media only screen and (max-width: 576px)": { //TODO Replace with mediaquery
+      html: {
+        ...scale(1/20),
       },
     },
     body: {
