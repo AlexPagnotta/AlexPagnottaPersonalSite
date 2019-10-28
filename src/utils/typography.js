@@ -4,7 +4,7 @@ import colors from "../globals/colors"
 const typography = new Typography({
   baseFontSize: "19px",
   baseLineHeight: 1.5,
-  scaleRatio: 2.3,
+  scaleRatio: 2.5,
   headerFontFamily: ["Bree Serif", "400"],
   bodyFontFamily: ["Assistant", "400"],
   googleFonts: [
@@ -25,12 +25,12 @@ const typography = new Typography({
   overrideStyles: ({scale}, options) => ({
     "@media only screen and (max-width: 768px)": { //TODO Replace with mediaquery
       html: {
-        ...scale(1/10),
+        ...scale(1/4),
       },
     },
     "@media only screen and (max-width: 576px)": { //TODO Replace with mediaquery
       html: {
-        ...scale(1/20),
+        ...scale(1/10),
       },
     },
     body: {
