@@ -23,7 +23,7 @@ const typography = new Typography({
     }
   ], 
   overrideStyles: ({scale}, options) => ({
-    "@media only screen and (max-width:38rem)": {
+    "@media only screen and (max-width:38rem)": { //TODO Replace with mediaquery
       html: {
         ...scale(1/10),
       },
