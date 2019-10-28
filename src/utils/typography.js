@@ -4,7 +4,7 @@ import colors from "../globals/colors"
 const typography = new Typography({
   baseFontSize: "19px",
   baseLineHeight: 1.5,
-  scaleRatio: 2.5,
+  scaleRatio: 2,
   headerFontFamily: ["Bree Serif", "400"],
   bodyFontFamily: ["Assistant", "400"],
   googleFonts: [

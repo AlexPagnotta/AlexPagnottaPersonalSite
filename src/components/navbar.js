@@ -11,7 +11,7 @@ margin-right: 30px;
 z-index: 3;
 position:fixed;
 right: 0;
-height: 150px;
+height: 100px;
 display: flex;
 align-items: center;
 `
@@ -19,6 +19,7 @@ align-items: center;
 const MenuIcon = styled.div`
   display: none;
   cursor: pointer;
+
   &:before,
   &:after,
   & > div {
@@ -30,7 +31,7 @@ const MenuIcon = styled.div`
   height: 5px;
   margin: 20px 0;
   transition: all .2s ease-in-out;
-  
+
   }
   
   &.active:before {
@@ -66,7 +67,7 @@ padding: 30px;
 z-index: 1;
 
 ${MediaQueries.queries.tablet`
-  height: 150px; 
+  height: 100px; 
 `}
 `
 const LogoDesktop = styled.div`
@@ -155,7 +156,7 @@ class Navbar extends React.Component  {
           }
           mobileLogoImage: file(relativePath: { eq: "logo.png" }) {
             childImageSharp {
-              fixed(height: 50) {
+              fixed(height: 40) {
                 ...GatsbyImageSharpFixed
               }
             }

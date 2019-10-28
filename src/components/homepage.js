@@ -61,7 +61,7 @@ display: none;
 &:after,
 & > div {
 width: 100%;
-height: 60px;
+height: 50px;
 background-color: ${colors.accentColor};
 content: '';
 display: block;
@@ -78,9 +78,6 @@ opacity: 0.7;
 &:after{
 opacity: 1;
 }
-
-
-
 
 ${MediaQueries.queries.tablet`
 display: block;
