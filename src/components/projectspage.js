@@ -3,6 +3,7 @@ import styled from "styled-components"
 import colors from "../globals/colors"
 import MediaQueries from "../Utils/mediaQueries"
 import { useStaticQuery, graphql } from "gatsby"
+import ProjectCard from "../components/project-card";
 
 const ProjectsContainer = styled.div`
 padding-top: 220px;
@@ -44,7 +45,7 @@ white-space:nowrap;
 
 function ProjectsPage() {
     const data = useStaticQuery(graphql`
-    query HeaderQuery {
+    query {
         allMarkdownRemark {
             edges {
               node {
@@ -60,7 +61,7 @@ function ProjectsPage() {
     }
   `)
   const Posts = data.allMarkdownRemark.edges
-  .map(edge => <h1>{edge.node.frontmatter.title}</h1>)
+  .map(edge => <ProjectCard key={edge.node.id} post={edge.node} />)
     return (
         <ProjectsContainer>
             <TextContainer>         
