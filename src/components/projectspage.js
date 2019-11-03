@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import colors from "../globals/colors"
 import MediaQueries from "../Utils/mediaQueries"
+import { useStaticQuery, graphql } from "gatsby"
 
 const ProjectsContainer = styled.div`
 padding-top: 220px;
@@ -42,9 +43,27 @@ white-space:nowrap;
 `
 
 function ProjectsPage() {
+    const data = useStaticQuery(graphql`
+    query HeaderQuery {
+        allMarkdownRemark {
+            edges {
+              node {
+                id,
+                frontmatter {
+                  title
+                  date
+                  author
+                }
+              }
+            }
+          }
+    }
+  `)
+  const Posts = data.allMarkdownRemark.edges
+  .map(edge => <h1>{edge.node.frontmatter.title}</h1>)
     return (
         <ProjectsContainer>
-            <TextContainer>
+            <TextContainer>         
                 <h1>I Miei <NoBreakLineSpan>Progetti |</NoBreakLineSpan></h1>      
                 <p>
                 Questi sono i miei progetti più recenti, sia per quanto riguarda la <mark>programmazione</mark>, che per quanto riguarda la <mark>progettazione grafica di UI/UX e loghi.</mark><br/>
@@ -53,7 +72,8 @@ function ProjectsPage() {
                 <LinkText><a href="https://www.html.it/">Github</a></LinkText>
                 <LinkText><a href="https://www.html.it/">Behance</a></LinkText>
             </TextContainer>
-            <ProfileImage>     
+            <ProfileImage>    
+            <div>{Posts}</div> 
             </ProfileImage>            
         </ProjectsContainer>
     )

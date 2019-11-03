@@ -42,3 +42,6 @@ exports.createPages = ({ graphql, actions }) => {
       })
     })
   }
+
+const postPage = path.resolve("src/templates/blog-post-template.js");
+const projectPage = path.resolve("src/templates/project-post-template.js");
