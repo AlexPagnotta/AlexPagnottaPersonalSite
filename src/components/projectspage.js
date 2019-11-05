@@ -8,6 +8,7 @@ import ProjectCard from "../components/project-card";
 const ProjectsContainer = styled.div`
 padding-top: 220px;
 width: 100%;
+height: 100vh;
 
 /* Grid */
 display: grid;
@@ -16,22 +17,38 @@ grid-template-columns: repeat(auto-fit, minmax(384px, 1fr));
 
 ${MediaQueries.queries.tablet`
 padding-top: 150px; 
-height:auto;
 `}
 `
-const TextContainer = styled.div`
+const TextColummn = styled.div`
 padding: 30px;
+height: 100%;
+
+display: flex;
+align-items: center;
 
 ${MediaQueries.queries.tablet`
-padding-top: 50px; 
-padding-bottom: 100px;
+align-items: flex-start;
 `}
 `
-const ProfileImage = styled.div`
-padding: 30px;
-background-color: ${colors.accentColor};
+
+const TextContainer = styled.div`
+`
+
+const ContentColumn = styled.div`
 width: 100%;
 height: 100%;
+background: red;
+overflow: auto;
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+grid-gap: 20px;
+align-items: stretch;
+
+${MediaQueries.queries.tablet`
+display: flex;
+align-items: flex-end;
+`}
+
 `
 
 const LinkText = styled.h4`
@@ -64,18 +81,20 @@ function ProjectsPage() {
   .map(edge => <ProjectCard key={edge.node.id} post={edge.node} />)
     return (
         <ProjectsContainer>
+          <TextColummn>
             <TextContainer>         
-                <h1>I Miei <NoBreakLineSpan>Progetti |</NoBreakLineSpan></h1>      
-                <p>
-                Questi sono i miei progetti più recenti, sia per quanto riguarda la <mark>programmazione</mark>, che per quanto riguarda la <mark>progettazione grafica di UI/UX e loghi.</mark><br/>
-                Puoi inoltre visitare i miei profili GitHub e Behance per vedere nel dettaglio tutti i miei progetti.
-                </p>    
-                <LinkText><a href="https://www.html.it/">Github</a></LinkText>
-                <LinkText><a href="https://www.html.it/">Behance</a></LinkText>
-            </TextContainer>
-            <ProfileImage>    
-            <div>{Posts}</div> 
-            </ProfileImage>            
+                  <h1>I Miei <NoBreakLineSpan>Progetti |</NoBreakLineSpan></h1>      
+                  <p>
+                  Questi sono i miei progetti più recenti, sia per quanto riguarda la <mark>programmazione</mark>, che per quanto riguarda la <mark>progettazione grafica di UI/UX e loghi.</mark><br/>
+                  Puoi inoltre visitare i miei profili GitHub e Behance per vedere nel dettaglio tutti i miei progetti.
+                  </p>    
+                  <LinkText><a href="https://www.html.it/">Github</a></LinkText>
+                  <LinkText><a href="https://www.html.it/">Behance</a></LinkText>
+              </TextContainer>
+            </TextColummn>      
+            <ContentColumn>
+                {Posts}
+            </ContentColumn>           
         </ProjectsContainer>
     )
   }
