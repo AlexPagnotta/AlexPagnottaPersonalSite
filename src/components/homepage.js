@@ -7,14 +7,16 @@ const HomepageContainer = styled.div`
 padding-top: 220px;
 width: 100%;
 height: 100vh;
+overflow: hidden;
 
 /* Grid */
 display: grid;
 align-items: flex-start;
-grid-template-columns: repeat(auto-fit, minmax(384px, 1fr));
+grid-template-columns: repeat(2, 1fr);
 
 ${MediaQueries.queries.tablet`
 padding-top: 150px; 
+grid-template-columns: repeat(1, 1fr);
 `}
 `
 const TextColummn = styled.div`
@@ -23,10 +25,6 @@ height: 100%;
 
 display: flex;
 align-items: center;
-
-${MediaQueries.queries.tablet`
-align-items: flex-start;
-`}
 `
 
 const TextContainer = styled.div`
