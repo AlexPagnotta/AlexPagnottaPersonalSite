@@ -13,12 +13,14 @@ height: 100vh;
 /* Grid */
 display: grid;
 align-items: flex-start;
-grid-template-columns: repeat(auto-fit, minmax(384px, 1fr));
+grid-template-columns: repeat(2, 1fr);
 
 ${MediaQueries.queries.tablet`
-padding-top: 150px; 
+padding-top: 100px; 
+grid-template-columns: repeat(1, 1fr);
 `}
 `
+
 const TextColummn = styled.div`
 padding: 30px;
 height: 100%;
@@ -37,16 +39,13 @@ const TextContainer = styled.div`
 const ContentColumn = styled.div`
 width: 100%;
 height: 100%;
-background: red;
 overflow: auto;
 display: grid;
-grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-grid-gap: 20px;
-align-items: stretch;
+grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+justify-items: center;
 
 ${MediaQueries.queries.tablet`
-display: flex;
-align-items: flex-end;
+  display: flex;
 `}
 
 `

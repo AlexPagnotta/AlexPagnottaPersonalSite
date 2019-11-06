@@ -30,7 +30,7 @@ const typography = new Typography({
     },
     "@media only screen and (max-width: 576px)": { //TODO Replace with mediaquery
       html: {
-        ...scale(1/10),
+        ...scale(1/8),
       },
     },
     body: {

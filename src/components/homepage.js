@@ -15,7 +15,7 @@ align-items: flex-start;
 grid-template-columns: repeat(2, 1fr);
 
 ${MediaQueries.queries.tablet`
-padding-top: 150px; 
+padding-top: 100px; 
 grid-template-columns: repeat(1, 1fr);
 `}
 `
