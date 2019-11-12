@@ -8,7 +8,7 @@ import Media from 'react-media';
 
 const MenuIconCointainer = styled.div`
 margin-right: 30px;
-z-index: 3;
+z-index: 5;
 position:fixed;
 right: 0;
 height: 100px;
@@ -64,7 +64,7 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 padding: 30px;
-z-index: 1;
+z-index: 3;
 
 ${MediaQueries.queries.tablet`
   height: 100px; 
@@ -148,7 +148,7 @@ class Navbar extends React.Component  {
         query {
           desktopLogoImage: file(relativePath: { eq: "logo.png" }) {
             childImageSharp {
-              fixed(height: 70) {
+              fixed(height: 60) {
                 ...GatsbyImageSharpFixed
               }
             }

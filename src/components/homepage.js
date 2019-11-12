@@ -2,6 +2,8 @@ import React from "react"
 import styled from "styled-components"
 import colors from "../globals/colors"
 import MediaQueries from "../Utils/mediaQueries"
+import { useStaticQuery, graphql } from "gatsby"
+import Img from "gatsby-image"
 
 const HomepageContainer = styled.div`
 padding-top: 220px;
@@ -17,6 +19,7 @@ grid-template-columns: repeat(2, 1fr);
 ${MediaQueries.queries.tablet`
 padding-top: 100px; 
 grid-template-columns: repeat(1, 1fr);
+position: relative;
 `}
 `
 const TextColummn = styled.div`
@@ -25,6 +28,11 @@ height: 100%;
 
 display: flex;
 align-items: center;
+
+${MediaQueries.queries.tablet`
+z-index: 2;
+`}
+
 `
 
 const TextContainer = styled.div`
@@ -35,50 +43,24 @@ width: 100%;
 height: 100%;
 
 ${MediaQueries.queries.tablet`
-display: flex;
-align-items: flex-end;
+z-index: 1;
+position: absolute;
+left: 170px;
+bottom: 0;
+width: 580px;
+height: 580px;
+opacity: 0.1;
 `}
 
 `
 
 const ProfileImage = styled.div`
-background-color: ${colors.accentColor};
+background-color: ${colors.baseColor};
 width: 100%;
 height: 100%;
 
 ${MediaQueries.queries.tablet`
-display: none;
-`}
-`
 
-const BottomBackground = styled.div`
-width: 100%;
-display: none;
-
-&:before,
-&:after,
-& > div {
-width: 100%;
-height: 50px;
-background-color: ${colors.accentColor};
-content: '';
-display: block;
-}
-
-&:before{
- opacity: 0.5;
-}
-
-& > div{
-opacity: 0.7;
-}
-
-&:after{
-opacity: 1;
-}
-
-${MediaQueries.queries.tablet`
-display: block;
 `}
 `
 
@@ -91,7 +73,20 @@ const NoBreakLineSpan = styled.span`
 white-space:nowrap;
 `
 
-function Homepage(props) {
+function Homepage() {
+
+    const image = useStaticQuery(graphql`
+    query {
+        profilePicImage: file(relativePath: { eq: "profile_pic.png" }) {
+          childImageSharp {
+            fixed(width: 580) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+      }
+  `)
+
     return (
         <HomepageContainer>
             <TextColummn>
@@ -101,20 +96,18 @@ function Homepage(props) {
                     <mark> Ho 21 anni </mark> , vivo in Umbria, e da 2 anni lavoro come <mark> sviluppatore </mark>, principalmente in <mark> c# </mark>, sia in ambiente WinForm che MVC Asp.Net.<br/>
                     Ho inoltre sviluppato alcune <mark> app Android </mark> nel tempo libero, oltre ad aver sempre avuto una passione per quello che riguarda la <mark> grafica e il design. </mark>
                     </p> 
-                    <ScrollLinkText onClick={ () => props.moveSectionDown() } >
+                    <ScrollLinkText>
                     Scorri per visualizzare il resto del sito.
                     </ScrollLinkText>
                 </TextContainer>
             </TextColummn>      
             <ContentColumn>
-                <ProfileImage>    
-                </ProfileImage>
-                <BottomBackground>
-                    <div></div>
-                </BottomBackground>     
+                <ProfileImage>  
+                    <Img fixed={image.profilePicImage.childImageSharp.fixed} />   
+                </ProfileImage>  
             </ContentColumn>   
-
         </HomepageContainer>
     )
   }
+
   export default Homepage
