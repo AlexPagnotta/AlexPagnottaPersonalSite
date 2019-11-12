@@ -29,20 +29,18 @@ class Index extends React.Component  {
     this.setState({ menuVisible: false });
   }
 
-  //Fullpage callback event on section scrolled
-  afterLoad(origin, destination, direction) {
-    this.setState({ sectionActive: destination.index });
-  }
 
   goToSection(index, isMobile) {
-    window.fullpage_api.moveTo(index, 0);
+    //TODO
+    /*window.fullpage_api.moveTo(index, 0);
     if(isMobile){
       this.navbar.current.menuIconClick();
-    }
+    }*/
   }
 
   moveSectionDown(index) {
-    window.fullpage_api.moveSectionDown();
+    //TODO
+    //window.fullpage_api.moveSectionDown();
   }
  
   render(){
@@ -50,27 +48,11 @@ class Index extends React.Component  {
     <Layout>     
       <NavMenuMobile goToSection={this.goToSection.bind(this)} sectionActive={this.state.sectionActive} menuVisible={this.state.menuVisible}></NavMenuMobile>
       <Navbar ref={this.navbar} goToSection={this.goToSection.bind(this)} sectionActive={this.state.sectionActive}  toggleOverlayMenu={this.toggleOverlayMenu.bind(this)} resetOverlayMenu={this.resetOverlayMenu.bind(this)}></Navbar> {/*Pass methods to children components*/}         
-      <ReactFullpage
-          afterLoad={this.afterLoad.bind(this)}
-          render={({ state, fullpageApi }) => {
-            return (
-              <ReactFullpage.Wrapper>
-                <div className="section">
-                  <Homepage moveSectionDown={this.moveSectionDown.bind(this)}></Homepage>      
-                </div>
-                <div className="section">
-                < ProjectsPage></ProjectsPage> 
-                </div>
-                <div className="section">
-                  <AboutPage></AboutPage>   
-                </div>
-              </ReactFullpage.Wrapper>
-            );
-          }}
-        />
-      </Layout>  
+      <Homepage moveSectionDown={this.moveSectionDown.bind(this)}></Homepage>      
+      <ProjectsPage></ProjectsPage> 
+      <AboutPage></AboutPage>   
+    </Layout>  
     );
    }
-
 }
 export default Index

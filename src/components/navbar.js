@@ -116,7 +116,6 @@ cursor: pointer;
 }
 `
 
-
 class Navbar extends React.Component  {
 
   constructor() {
