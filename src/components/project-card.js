@@ -7,9 +7,8 @@ import colors from "../globals/colors"
 const ProjectCardContainer = styled.div`
 background-color:  ${colors.primaryColor};
 height: 350px;
-width: 250px;
+width: 280px;
 margin: 30px;
-border-radius: 20px;
 flex-shrink: 0;
 display: flex;
 flex-direction: column-reverse;
@@ -19,20 +18,19 @@ overflow: hidden;
 -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
 
 ${MediaQueries.queries.tablet`
-  height: 200px;
-  width: 150px;
-  margin: 10px;
+
 `}
 `
 
 const ProjectCardFooter = styled.div`
-background-color:  ${colors.accentColor};
+background-color:  ${colors.baseColor};
 height: 150px;
 width: 100%;
 padding: 30px;
+display: flex;
+align-items: center;
 
 ${MediaQueries.queries.tablet`
-height: 120px;
 `}
 
 `
