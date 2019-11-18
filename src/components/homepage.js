@@ -12,6 +12,9 @@ height: 100vh;
 overflow-x: hidden;
 min-height: 550px;
 
+max-width: 1220px;
+margin: 0 auto; //Center the container
+
 /* Grid */
 display: grid;
 align-items: flex-start;

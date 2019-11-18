@@ -53,23 +53,29 @@ const MenuIcon = styled.div`
   `}
 }`
 
-const NavbarContainer = styled.nav`
+const NavbarBackContainer = styled.nav`
 background-color:  ${colors.baseColor};
-width: 100%;
-max-width: 1220px;
 position: fixed;
-height: 220px; 
 width: 100%;
+z-index: 3;
+`
+
+const NavbarContainer = styled.nav`
+width: 100%;
+height: 220px; 
 display: flex;
 justify-content: space-between;
 align-items: center;
 padding: 30px;
-z-index: 3;
+
+max-width: 1220px;
+margin: 0 auto; //Center the container
 
 ${MediaQueries.queries.tablet`
   height: 100px; 
 `}
 `
+
 const LogoDesktop = styled.div`
 display: flex;
 margin-bottom: 0px;
@@ -167,29 +173,31 @@ class Navbar extends React.Component  {
             <MenuIconCointainer>        
               <MenuIcon onClick={this.menuIconClick} className={this.state.menuIconClicked ? 'active' : null}>
               </MenuIcon>     
-            </MenuIconCointainer>                                   
-            <NavbarContainer>            
-              <LogoDesktop>
-                <Img fixed={data.desktopLogoImage.childImageSharp.fixed} /> 
-              </LogoDesktop>
-              <LogoMobile>
-                <Img fixed={data.mobileLogoImage.childImageSharp.fixed} /> 
-              </LogoMobile>
-              <MenuItems>
-                <MenuItem onClick={ () => this.props.goToSection(1,false) } className={this.props.sectionActive == 0 ? 'active' : null}>Home</MenuItem>
-                <MenuItem onClick={ () => this.props.goToSection(2,false) } className={this.props.sectionActive  == 1 ? 'active' : null}>Progetti</MenuItem>
-                <MenuItem onClick={ () => this.props.goToSection(3,false) } className={this.props.sectionActive  == 2 ? 'active' : null}>Chi Sono</MenuItem>
-                <MenuItem>Visita il mio Blog</MenuItem>
-              </MenuItems>
-              <Media
-                query={"(max-width: " + MediaQueries.sizes.tablet + "px)"}
-                onChange={matches =>
-                  matches
-                  ? null : this.resetMenuState()
-                }
-              />
-              
-            </NavbarContainer>
+            </MenuIconCointainer>    
+            <NavbarBackContainer>                               
+              <NavbarContainer>            
+                <LogoDesktop>
+                  <Img fixed={data.desktopLogoImage.childImageSharp.fixed} /> 
+                </LogoDesktop>
+                <LogoMobile>
+                  <Img fixed={data.mobileLogoImage.childImageSharp.fixed} /> 
+                </LogoMobile>
+                <MenuItems>
+                  <MenuItem onClick={ () => this.props.goToSection(1,false) } className={this.props.sectionActive == 0 ? 'active' : null}>Home</MenuItem>
+                  <MenuItem onClick={ () => this.props.goToSection(2,false) } className={this.props.sectionActive  == 1 ? 'active' : null}>Progetti</MenuItem>
+                  <MenuItem onClick={ () => this.props.goToSection(3,false) } className={this.props.sectionActive  == 2 ? 'active' : null}>Chi Sono</MenuItem>
+                  <MenuItem>Visita il mio Blog</MenuItem>
+                </MenuItems>
+                <Media
+                  query={"(max-width: " + MediaQueries.sizes.tablet + "px)"}
+                  onChange={matches =>
+                    matches
+                    ? null : this.resetMenuState()
+                  }
+                />
+                
+              </NavbarContainer>
+            </NavbarBackContainer>                                       
           </div>
         )}
       />

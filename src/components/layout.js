@@ -7,6 +7,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     background-color: ${colors.baseColor};
+    color: colors.primaryColor;
   }
 
   mark{
@@ -16,8 +17,6 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const Container = styled.div`
-margin: 0 auto;
-max-width: 1220px;
 `
 
 export default ({ children }) => (
