@@ -9,7 +9,8 @@ const HomepageContainer = styled.div`
 padding-top: 220px;
 width: 100%;
 height: 100vh;
-overflow: hidden;
+overflow-x: hidden;
+min-height: 550px;
 
 /* Grid */
 display: grid;
