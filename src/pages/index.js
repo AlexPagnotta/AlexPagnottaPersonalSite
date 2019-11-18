@@ -49,8 +49,7 @@ class Index extends React.Component  {
       <NavMenuMobile goToSection={this.goToSection.bind(this)} sectionActive={this.state.sectionActive} menuVisible={this.state.menuVisible}></NavMenuMobile>
       <Navbar ref={this.navbar} goToSection={this.goToSection.bind(this)} sectionActive={this.state.sectionActive}  toggleOverlayMenu={this.toggleOverlayMenu.bind(this)} resetOverlayMenu={this.resetOverlayMenu.bind(this)}></Navbar> {/*Pass methods to children components*/}         
       <Homepage moveSectionDown={this.moveSectionDown.bind(this)}></Homepage>      
-      <ProjectsPage></ProjectsPage> 
-      <AboutPage></AboutPage>   
+
     </Layout>  
     );
    }

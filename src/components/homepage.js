@@ -32,7 +32,6 @@ align-items: center;
 ${MediaQueries.queries.tablet`
 z-index: 2;
 `}
-
 `
 
 const TextContainer = styled.div`
@@ -41,27 +40,27 @@ const TextContainer = styled.div`
 const ContentColumn = styled.div`
 width: 100%;
 height: 100%;
+opacity: 0.4;
 
 ${MediaQueries.queries.tablet`
 z-index: 1;
 position: absolute;
-left: 170px;
+left: 200px;
 bottom: 0;
 width: 580px;
 height: 580px;
 opacity: 0.1;
 `}
 
+${MediaQueries.queries.phone`
+left: 50px;
+`}
 `
 
 const ProfileImage = styled.div`
 background-color: ${colors.baseColor};
 width: 100%;
 height: 100%;
-
-${MediaQueries.queries.tablet`
-
-`}
 `
 
 const ScrollLinkText = styled.h4`
@@ -105,7 +104,7 @@ function Homepage() {
                 <ProfileImage>  
                     <Img fixed={image.profilePicImage.childImageSharp.fixed} />   
                 </ProfileImage>  
-            </ContentColumn>   
+            </ContentColumn>  
         </HomepageContainer>
     )
   }
