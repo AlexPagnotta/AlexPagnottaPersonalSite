@@ -54,8 +54,8 @@ z-index: 1;
 position: absolute;
 left: 200px;
 bottom: 0;
-width: 500px;
-height: 500px;
+width: 700px;
+height: 700px;
 opacity: 0.1;
 `}
 
@@ -65,9 +65,30 @@ left: 50px;
 `
 
 const ProfileImage = styled.div`
+display: flex;
 background-color: ${colors.baseColor};
 width: 100%;
 height: 100%;
+align-items: center;
+justify-content: center;
+
+${MediaQueries.queries.tablet`
+display: none;
+`}
+`
+
+const ProfileImageMobile = styled.div`
+background-color: ${colors.baseColor};
+width: 100%;
+height: 100%;
+display: none;
+align-items: center;
+justify-content: center;
+
+${MediaQueries.queries.tablet`
+display: flex;
+`}
+
 `
 
 const ScrollLinkText = styled.h4`
@@ -90,6 +111,13 @@ function Homepage() {
             }
           }
         }
+        profilePicImageMobile: file(relativePath: { eq: "profile_pic.png" }) {
+            childImageSharp {
+              fixed(width: 700) {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
       }
   `)
 
@@ -108,9 +136,8 @@ function Homepage() {
                 </TextContainer>
             </TextColummn>      
             <ContentColumn>
-                <ProfileImage>  
-                    <Img fixed={image.profilePicImage.childImageSharp.fixed} />   
-                </ProfileImage>  
+                <ProfileImage><Img fixed={image.profilePicImage.childImageSharp.fixed} /></ProfileImage>  
+                <ProfileImageMobile><Img fixed={image.profilePicImageMobile.childImageSharp.fixed} /></ProfileImageMobile>  
             </ContentColumn>  
         </HomepageContainer>
     )

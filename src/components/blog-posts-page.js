@@ -3,14 +3,14 @@ import styled from "styled-components"
 import colors from "../globals/colors"
 import MediaQueries from "../Utils/mediaQueries"
 import { useStaticQuery, graphql } from "gatsby"
-import ProjectCard from "../components/project-card";
+import BlogPostCard from "../components/blog-post-card";
 
-const ProjectsBackContainer = styled.div`
+const BlogPostsBackContainer = styled.div`
 width: 100%;
-background-color: ${colors.accentColor};
+background-color: ${colors.baseColor};
 `
 
-const ProjectsContainer = styled.div`
+const BlogPostsContainer = styled.div`
 width: 100%;
 overflow-x: hidden;
 `
@@ -22,7 +22,7 @@ max-width: 1220px;
 margin: 0 auto; //Center the container
 `
 
-const ProjectCardsContainer = styled.div`
+const BlogPostsCardsContainer = styled.div`
 width: 100%;
 display flex;
 overflow: auto;
@@ -45,7 +45,7 @@ const NoBreakLineSpan = styled.span`
 white-space:nowrap;
 `
 
-function ProjectsPage() {
+function BlogPostsPage() {
     const data = useStaticQuery(graphql`
     query {
         allMarkdownRemark {
@@ -63,22 +63,22 @@ function ProjectsPage() {
     }
   `)
   const Posts = data.allMarkdownRemark.edges
-  .map(edge => <ProjectCard key={edge.node.id} post={edge.node} />)
+  .map(edge => <BlogPostCard key={edge.node.id} post={edge.node} />)
     return (
-        <ProjectsBackContainer>
-          <ProjectsContainer>
+        <BlogPostsBackContainer>
+          <BlogPostsContainer>
             <TitleContainer>
-              <h1>I Miei Progetti |</h1> 
-              <p>Questi sono i miei ultimi progetti di grafica e programmazione.</p> 
+              <h1>Il Mio Blog |</h1> 
+              <p>Questi sono i miei ultimi articoli dal Blog.</p> 
               <ScrollLinkText>
                 Visualizza tutto
               </ScrollLinkText>
             </TitleContainer>
-            <ProjectCardsContainer>
+            <BlogPostsCardsContainer>
               {Posts}
-            </ProjectCardsContainer>
-          </ProjectsContainer>            
-        </ProjectsBackContainer>
+            </BlogPostsCardsContainer>
+          </BlogPostsContainer>            
+        </BlogPostsBackContainer>
     )
   }
-  export default ProjectsPage
+  export default BlogPostsPage

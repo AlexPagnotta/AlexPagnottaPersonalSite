@@ -4,6 +4,7 @@ import Navbar from "../components/navbar"
 import NavMenuMobile from "../components/navMenuMobile"
 import Homepage from "../components/homepage";
 import ProjectsPage from "../components/projectspage";
+import BlogPostsPage from "../components/blog-posts-page";
 import AboutPage from "../components/aboutpage";
 import ReactFullpage from '@fullpage/react-fullpage';
 import styled from "styled-components"
@@ -50,6 +51,7 @@ class Index extends React.Component  {
       <Navbar ref={this.navbar} goToSection={this.goToSection.bind(this)} sectionActive={this.state.sectionActive}  toggleOverlayMenu={this.toggleOverlayMenu.bind(this)} resetOverlayMenu={this.resetOverlayMenu.bind(this)}></Navbar> {/*Pass methods to children components*/}         
       <Homepage moveSectionDown={this.moveSectionDown.bind(this)}></Homepage>      
       <ProjectsPage></ProjectsPage> 
+      <BlogPostsPage></BlogPostsPage> 
     </Layout>  
     );
    }
