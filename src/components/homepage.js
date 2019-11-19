@@ -10,7 +10,6 @@ padding-top: 220px;
 width: 100%;
 height: 100vh;
 overflow-x: hidden;
-min-height: 550px;
 
 max-width: 1220px;
 margin: 0 auto; //Center the container
@@ -25,6 +24,10 @@ padding-top: 100px;
 grid-template-columns: repeat(1, 1fr);
 position: relative;
 `}
+
+@media (max-height: 730px) {
+    height: 730px;
+}
 `
 const TextColummn = styled.div`
 padding: 30px;
@@ -51,8 +54,8 @@ z-index: 1;
 position: absolute;
 left: 200px;
 bottom: 0;
-width: 580px;
-height: 580px;
+width: 500px;
+height: 500px;
 opacity: 0.1;
 `}
 
@@ -82,7 +85,7 @@ function Homepage() {
     query {
         profilePicImage: file(relativePath: { eq: "profile_pic.png" }) {
           childImageSharp {
-            fixed(width: 580) {
+            fixed(width: 500) {
               ...GatsbyImageSharpFixed
             }
           }
