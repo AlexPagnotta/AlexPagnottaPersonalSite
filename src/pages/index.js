@@ -52,6 +52,7 @@ class Index extends React.Component  {
       <Homepage moveSectionDown={this.moveSectionDown.bind(this)}></Homepage>      
       <ProjectsPage></ProjectsPage> 
       <BlogPostsPage></BlogPostsPage> 
+      <AboutPage></AboutPage> 
     </Layout>  
     );
    }
