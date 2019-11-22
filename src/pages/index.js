@@ -9,6 +9,7 @@ import AboutPage from "../components/aboutpage";
 import Footer from "../components/footer";
 import styled from "styled-components"
 import scrollTo from 'gatsby-plugin-smoothscroll';
+import { Waypoint } from 'react-waypoint';
 
 class Index extends React.Component  {
 
@@ -17,7 +18,7 @@ class Index extends React.Component  {
     this.navbar = React.createRef();
     this.state = {
       menuVisible: false,
-      sectionActive: 0
+      sectionActive: 1
     };
   }
 
@@ -53,9 +54,13 @@ class Index extends React.Component  {
     }
   }
 
+  sectionScrollCallback(sectionIndex){
+    //Callback event on section scrolled
+    this.setState({ sectionActive: sectionIndex });
+  }
+
   moveSectionDown(index) {
-    //TODO
-    //window.fullpage_api.moveSectionDown();
+    scrollTo('#projectspage-section')
   }
  
   render(){
@@ -63,10 +68,14 @@ class Index extends React.Component  {
     <Layout>     
       <NavMenuMobile goToSection={this.goToSection.bind(this)} sectionActive={this.state.sectionActive} menuVisible={this.state.menuVisible}></NavMenuMobile>
       <Navbar ref={this.navbar} goToSection={this.goToSection.bind(this)} sectionActive={this.state.sectionActive}  toggleOverlayMenu={this.toggleOverlayMenu.bind(this)} resetOverlayMenu={this.resetOverlayMenu.bind(this)}></Navbar> {/*Pass methods to children components*/}         
-      <Homepage moveSectionDown={this.moveSectionDown.bind(this)}></Homepage>      
-      <ProjectsPage></ProjectsPage> 
-      <BlogPostsPage></BlogPostsPage> 
+      <Homepage moveSectionDown={this.moveSectionDown.bind(this)}></Homepage>   
+      <Waypoint onEnter= {() => this.sectionScrollCallback(1) }></Waypoint>                  
+      <ProjectsPage></ProjectsPage>
+      <Waypoint onEnter= {() => this.sectionScrollCallback(2) }></Waypoint>            
+      <BlogPostsPage></BlogPostsPage>    
+      <Waypoint onEnter= {() => this.sectionScrollCallback(3) }></Waypoint>       
       <AboutPage></AboutPage> 
+      <Waypoint onEnter= {() => this.sectionScrollCallback(4) }></Waypoint>                        
       <Footer></Footer> 
     </Layout>  
     );

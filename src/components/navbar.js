@@ -183,10 +183,10 @@ class Navbar extends React.Component  {
                   <Img fixed={data.mobileLogoImage.childImageSharp.fixed} /> 
                 </LogoMobile>
                 <MenuItems>
-                  <MenuItem onClick={ () => this.props.goToSection(1,false) } className={this.props.sectionActive == 0 ? 'active' : null}>Home</MenuItem>
-                  <MenuItem onClick={ () => this.props.goToSection(2,false) } className={this.props.sectionActive  == 1 ? 'active' : null}>Progetti</MenuItem>
-                  <MenuItem onClick={ () => this.props.goToSection(3,false) } className={this.props.sectionActive  == 2 ? 'active' : null}>Articoli</MenuItem>
-                  <MenuItem onClick={ () => this.props.goToSection(4,false) } className={this.props.sectionActive  == 3 ? 'active' : null}>Chi Sono</MenuItem>
+                  <MenuItem onClick={ () => this.props.goToSection(1,false) } className={this.props.sectionActive === 1 ? 'active' : null}>Home</MenuItem>
+                  <MenuItem onClick={ () => this.props.goToSection(2,false) } className={this.props.sectionActive  === 2 ? 'active' : null}>Progetti</MenuItem>
+                  <MenuItem onClick={ () => this.props.goToSection(3,false) } className={this.props.sectionActive  === 3 ? 'active' : null}>Articoli</MenuItem>
+                  <MenuItem onClick={ () => this.props.goToSection(4,false) } className={this.props.sectionActive  === 4 ? 'active' : null}>Chi Sono</MenuItem>
                   <MenuItem>Visita il mio Blog</MenuItem>
                 </MenuItems>
                 <Media
