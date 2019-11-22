@@ -7,7 +7,6 @@ import ProjectsPage from "../components/projectspage";
 import BlogPostsPage from "../components/blog-posts-page";
 import AboutPage from "../components/aboutpage";
 import Footer from "../components/footer";
-import ReactFullpage from '@fullpage/react-fullpage';
 import styled from "styled-components"
 
 class Index extends React.Component  {
