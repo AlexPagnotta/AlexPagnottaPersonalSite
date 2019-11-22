@@ -8,6 +8,7 @@ import BlogPostsPage from "../components/blog-posts-page";
 import AboutPage from "../components/aboutpage";
 import Footer from "../components/footer";
 import styled from "styled-components"
+import scrollTo from 'gatsby-plugin-smoothscroll';
 
 class Index extends React.Component  {
 
@@ -30,13 +31,26 @@ class Index extends React.Component  {
     this.setState({ menuVisible: false });
   }
 
-
   goToSection(index, isMobile) {
-    //TODO
-    /*window.fullpage_api.moveTo(index, 0);
+
+    if(index== 1){
+    scrollTo('#homepage-section')
+      
+    }
+    else if(index == 2){
+      scrollTo('#projectspage-section')
+
+    }
+    else if(index == 3){
+      scrollTo('#blogposts-section')   
+    }
+    else if(index == 4){
+      scrollTo('#aboutpage-section')   
+    }
+
     if(isMobile){
       this.navbar.current.menuIconClick();
-    }*/
+    }
   }
 
   moveSectionDown(index) {

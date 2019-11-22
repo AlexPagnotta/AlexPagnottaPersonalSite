@@ -49,7 +49,8 @@ function NavMenuMobile(props) {
         <MobileMenuItems>
             <MobileMenuItem onClick={ () => props.goToSection(1,true) } className={props.sectionActive === 0 ? 'active' : null}>Home</MobileMenuItem>
             <MobileMenuItem onClick={ () => props.goToSection(2,true) } className={props.sectionActive === 1 ? 'active' : null}>Progetti</MobileMenuItem>
-            <MobileMenuItem onClick={ () => props.goToSection(3,true) } className={props.sectionActive === 2 ? 'active' : null}>Chi Sono</MobileMenuItem>
+            <MobileMenuItem onClick={ () => props.goToSection(3,true) } className={props.sectionActive === 2 ? 'active' : null}>Articoli</MobileMenuItem>
+            <MobileMenuItem onClick={ () => props.goToSection(4,true) } className={props.sectionActive === 3 ? 'active' : null}>Chi Sono</MobileMenuItem>
             <MobileMenuItem>Visita il mio Blog</MobileMenuItem>
         </MobileMenuItems>
     </OverlayContainer>

@@ -3,7 +3,23 @@ import styled from "styled-components"
 import colors from "../globals/colors"
 import MediaQueries from "../Utils/mediaQueries"
 
-const AboutBackContainer = styled.div`
+const AboutSectionContainer =  styled.div.attrs({ id: 'aboutpage-section', })`
+width: 100%;
+
+//Fix scroll to with navbar
+padding-top: 220px;
+margin-top: -220px;
+
+${MediaQueries.queries.tablet`
+
+//Fix scroll to with navbar
+padding-top: 100px;
+margin-top: -100px;
+
+`}
+`
+
+const AboutBackContainer =  styled.div`
 background-color: ${colors.accentColor};
 width: 100%;
 `
@@ -70,40 +86,42 @@ white-space:nowrap;
 
 function AboutPage() {
     return (
-        <AboutBackContainer>         
-            <AboutContainer>
-                <ChiSonoColumn> 
-                    <TextContainer>
-                        <h2>Chi Sono?</h2>      
-                        <p>
-                        Come già detto, sono Alex Pagnotta, ho 21 anni, e sin da piccolo ho sempre avuto una grande passione per tutto quello che riguarda l'informatica e la programmazione, passione che da 2 anni é diventata il mio lavoro.<br/><br/>
-                        Qua sotto trovi i link ai miei profili LinkedIn, Instagram e alla mia email per contattarmi.<br/><br/>
-                        Sempre in questa pagina puoi inoltre consultare il mio curriculum, in versione parziale qua sul sito, o completa scaricandolo in PDF.<br/><br/>
-                        </p> 
-                    </TextContainer> 
-                </ChiSonoColumn>
-                <LinksColumn>       
-                    <h2>Link Utili</h2>              
-                    <LinksContainer>        
-                        <ScrollLinkText>
-                            Linkedin
-                        </ScrollLinkText> 
-                        <ScrollLinkText>
-                            Github
-                        </ScrollLinkText> 
-                        <ScrollLinkText>
-                            Behance
-                        </ScrollLinkText> 
-                        <ScrollLinkText>
-                            Mandami un Email
-                        </ScrollLinkText> 
-                        <ScrollLinkText>
-                            Scarica il mio curriculum completo
-                        </ScrollLinkText> 
-                    </LinksContainer>                     
-                </LinksColumn>    
-            </AboutContainer>
-        </AboutBackContainer>
+        <AboutSectionContainer>         
+            <AboutBackContainer>         
+                <AboutContainer>
+                    <ChiSonoColumn> 
+                        <TextContainer>
+                            <h2>Chi Sono?</h2>      
+                            <p>
+                            Come già detto, sono Alex Pagnotta, ho 21 anni, e sin da piccolo ho sempre avuto una grande passione per tutto quello che riguarda l'informatica e la programmazione, passione che da 2 anni é diventata il mio lavoro.<br/><br/>
+                            Qua sotto trovi i link ai miei profili LinkedIn, Instagram e alla mia email per contattarmi.<br/><br/>
+                            Sempre in questa pagina puoi inoltre consultare il mio curriculum, in versione parziale qua sul sito, o completa scaricandolo in PDF.<br/><br/>
+                            </p> 
+                        </TextContainer> 
+                    </ChiSonoColumn>
+                    <LinksColumn>       
+                        <h2>Link Utili</h2>              
+                        <LinksContainer>        
+                            <ScrollLinkText>
+                                Linkedin
+                            </ScrollLinkText> 
+                            <ScrollLinkText>
+                                Github
+                            </ScrollLinkText> 
+                            <ScrollLinkText>
+                                Behance
+                            </ScrollLinkText> 
+                            <ScrollLinkText>
+                                Mandami un Email
+                            </ScrollLinkText> 
+                            <ScrollLinkText>
+                                Scarica il mio curriculum completo
+                            </ScrollLinkText> 
+                        </LinksContainer>                     
+                    </LinksColumn>    
+                </AboutContainer>
+            </AboutBackContainer>
+        </AboutSectionContainer>
     )
   }
   export default AboutPage

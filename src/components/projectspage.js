@@ -5,9 +5,26 @@ import MediaQueries from "../Utils/mediaQueries"
 import { useStaticQuery, graphql } from "gatsby"
 import ProjectCard from "../components/project-card";
 
-const ProjectsBackContainer = styled.div`
+const ProjectsSectionContainer =  styled.div.attrs({ id: 'projectspage-section', })`
+width: 100%;
+
+//Fix scroll to with navbar
+padding-top: 220px;
+margin-top: -220px;
+
+${MediaQueries.queries.tablet`
+
+//Fix scroll to with navbar
+padding-top: 100px;
+margin-top: -100px;
+
+`}
+`
+
+const ProjectsBackContainer =  styled.div`
 width: 100%;
 background-color: ${colors.accentColor};
+
 `
 
 const ProjectsContainer = styled.div`
@@ -65,20 +82,22 @@ function ProjectsPage() {
   const Posts = data.allMarkdownRemark.edges
   .map(edge => <ProjectCard key={edge.node.id} post={edge.node} />)
     return (
-        <ProjectsBackContainer>
-          <ProjectsContainer>
-            <TitleContainer>
-              <h1>I Miei Progetti |</h1> 
-              <p>Questi sono i miei ultimi progetti di grafica e programmazione.</p> 
-              <ScrollLinkText>
-                Visualizza tutto
-              </ScrollLinkText>
-            </TitleContainer>
-            <ProjectCardsContainer>
-              {Posts}
-            </ProjectCardsContainer>
-          </ProjectsContainer>            
-        </ProjectsBackContainer>
+        <ProjectsSectionContainer>
+          <ProjectsBackContainer>
+            <ProjectsContainer>
+              <TitleContainer>
+                <h1>I Miei Progetti |</h1> 
+                <p>Questi sono i miei ultimi progetti di grafica e programmazione.</p> 
+                <ScrollLinkText>
+                  Visualizza tutto
+                </ScrollLinkText>
+              </TitleContainer>
+              <ProjectCardsContainer>
+                {Posts}
+              </ProjectCardsContainer>
+            </ProjectsContainer>            
+          </ProjectsBackContainer>
+        </ProjectsSectionContainer>
     )
   }
   export default ProjectsPage

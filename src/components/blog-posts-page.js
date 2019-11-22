@@ -5,6 +5,22 @@ import MediaQueries from "../Utils/mediaQueries"
 import { useStaticQuery, graphql } from "gatsby"
 import BlogPostCard from "../components/blog-post-card";
 
+const BlogPostsSectionContainer =  styled.div.attrs({ id: 'blogposts-section', })`
+width: 100%;
+
+//Fix scroll to with navbar
+padding-top: 220px;
+margin-top: -220px;
+
+${MediaQueries.queries.tablet`
+
+//Fix scroll to with navbar
+padding-top: 100px;
+margin-top: -100px;
+
+`}
+`
+
 const BlogPostsBackContainer = styled.div`
 width: 100%;
 background-color: ${colors.baseColor};
@@ -65,20 +81,22 @@ function BlogPostsPage() {
   const Posts = data.allMarkdownRemark.edges
   .map(edge => <BlogPostCard key={edge.node.id} post={edge.node} />)
     return (
-        <BlogPostsBackContainer>
-          <BlogPostsContainer>
-            <TitleContainer>
-              <h1>Il Mio Blog |</h1> 
-              <p>Questi sono i miei ultimi articoli dal Blog.</p> 
-              <ScrollLinkText>
-                Visualizza tutto
-              </ScrollLinkText>
-            </TitleContainer>
-            <BlogPostsCardsContainer>
-              {Posts}
-            </BlogPostsCardsContainer>
-          </BlogPostsContainer>            
-        </BlogPostsBackContainer>
+        <BlogPostsSectionContainer>
+          <BlogPostsBackContainer>
+            <BlogPostsContainer>
+              <TitleContainer>
+                <h1>Il Mio Blog |</h1> 
+                <p>Questi sono i miei ultimi articoli dal Blog.</p> 
+                <ScrollLinkText>
+                  Visualizza tutto
+                </ScrollLinkText>
+              </TitleContainer>
+              <BlogPostsCardsContainer>
+                {Posts}
+              </BlogPostsCardsContainer>
+            </BlogPostsContainer>            
+          </BlogPostsBackContainer>
+        </BlogPostsSectionContainer>
     )
   }
   export default BlogPostsPage

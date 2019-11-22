@@ -5,7 +5,7 @@ import MediaQueries from "../Utils/mediaQueries"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
-const HomepageContainer = styled.div`
+const HomepageContainer = styled.div.attrs({ id: 'homepage-section', })`
 padding-top: 220px;
 width: 100%;
 height: 100vh;
