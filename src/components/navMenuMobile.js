@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import colors from "../globals/colors"
+import Scrollspy from 'react-scrollspy'
 
 const OverlayContainer = styled.div`
 position:fixed;
@@ -47,12 +48,19 @@ function NavMenuMobile(props) {
   return (
     <OverlayContainer className={props.menuVisible ? null : 'hidden'}>
         <MobileMenuItems>
-            <MobileMenuItem onClick={ () => props.goToSection(1,true) } className={props.sectionActive === 1 ? 'active' : null}>Home</MobileMenuItem>
-            <MobileMenuItem onClick={ () => props.goToSection(2,true) } className={props.sectionActive === 2 ? 'active' : null}>Progetti</MobileMenuItem>
-            <MobileMenuItem onClick={ () => props.goToSection(3,true) } className={props.sectionActive === 3 ? 'active' : null}>Articoli</MobileMenuItem>
-            <MobileMenuItem onClick={ () => props.goToSection(4,true) } className={props.sectionActive === 4 ? 'active' : null}>Chi Sono</MobileMenuItem>
+        <Scrollspy 
+          items={ [ 'homepage-section','projectspage-section','blogposts-section','aboutpage-section'] } 
+          currentClassName="active"
+          offset={-220}
+          componentTag="div"
+          style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+            <MobileMenuItem onClick={ () => props.goToSection(1,true) }>Home</MobileMenuItem>
+            <MobileMenuItem onClick={ () => props.goToSection(2,true) }>Progetti</MobileMenuItem>
+            <MobileMenuItem onClick={ () => props.goToSection(3,true) }>Articoli</MobileMenuItem>
+            <MobileMenuItem onClick={ () => props.goToSection(4,true) }>Chi Sono</MobileMenuItem>
             <MobileMenuItem>Visita il mio Blog</MobileMenuItem>
-        </MobileMenuItems>
+          </Scrollspy>
+  </MobileMenuItems>
     </OverlayContainer>
  
   )

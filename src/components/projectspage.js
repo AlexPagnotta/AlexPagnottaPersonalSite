@@ -5,7 +5,7 @@ import MediaQueries from "../Utils/mediaQueries"
 import { useStaticQuery, graphql } from "gatsby"
 import ProjectCard from "../components/project-card";
 
-const ProjectsSectionContainer =  styled.div.attrs({ id: 'projectspage-section', })`
+const ProjectsSectionContainer =  styled.div`
 width: 100%;
 
 //Fix scroll to with navbar

@@ -17,8 +17,7 @@ class Index extends React.Component  {
     super();
     this.navbar = React.createRef();
     this.state = {
-      menuVisible: false,
-      sectionActive: 1
+      menuVisible: false
     };
   }
 
@@ -54,10 +53,6 @@ class Index extends React.Component  {
     }
   }
 
-  sectionScrollCallback(sectionIndex){
-    //Callback event on section scrolled
-    this.setState({ sectionActive: sectionIndex });
-  }
 
   moveSectionDown(index) {
     scrollTo('#projectspage-section')
@@ -66,12 +61,21 @@ class Index extends React.Component  {
   render(){
     return(
     <Layout>     
-      <NavMenuMobile goToSection={this.goToSection.bind(this)} sectionActive={this.state.sectionActive} menuVisible={this.state.menuVisible}></NavMenuMobile>
-      <Navbar ref={this.navbar} goToSection={this.goToSection.bind(this)} sectionActive={this.state.sectionActive}  toggleOverlayMenu={this.toggleOverlayMenu.bind(this)} resetOverlayMenu={this.resetOverlayMenu.bind(this)}></Navbar> {/*Pass methods to children components*/}         
-      <Homepage moveSectionDown={this.moveSectionDown.bind(this)}></Homepage>                                  
-      <ProjectsPage></ProjectsPage>     
-      <BlogPostsPage></BlogPostsPage>                                
-      <AboutPage></AboutPage> 
+      <NavMenuMobile goToSection={this.goToSection.bind(this)} menuVisible={this.state.menuVisible}></NavMenuMobile>
+      <Navbar ref={this.navbar} goToSection={this.goToSection.bind(this)} toggleOverlayMenu={this.toggleOverlayMenu.bind(this)} resetOverlayMenu={this.resetOverlayMenu.bind(this)}></Navbar> {/*Pass methods to children components*/}         
+      
+      <section id="homepage-section">
+        <Homepage moveSectionDown={this.moveSectionDown.bind(this)}></Homepage>                                    
+      </section>
+      <section id="projectspage-section">
+        <ProjectsPage></ProjectsPage>        
+      </section>
+      <section id="blogposts-section">   
+        <BlogPostsPage></BlogPostsPage>   
+      </section>
+      <section id="aboutpage-section">                               
+        <AboutPage></AboutPage> 
+      </section>      
       <Footer></Footer> 
     </Layout>  
     );

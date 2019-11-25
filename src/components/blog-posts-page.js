@@ -5,7 +5,7 @@ import MediaQueries from "../Utils/mediaQueries"
 import { useStaticQuery, graphql } from "gatsby"
 import BlogPostCard from "../components/blog-post-card";
 
-const BlogPostsSectionContainer =  styled.div.attrs({ id: 'blogposts-section', })`
+const BlogPostsSectionContainer =  styled.div`
 width: 100%;
 
 //Fix scroll to with navbar

@@ -5,6 +5,7 @@ import { StaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import colors from "../globals/colors"
 import Media from 'react-media';
+import Scrollspy from 'react-scrollspy'
 
 const MenuIconCointainer = styled.div`
 margin-right: 30px;
@@ -183,11 +184,18 @@ class Navbar extends React.Component  {
                   <Img fixed={data.mobileLogoImage.childImageSharp.fixed} /> 
                 </LogoMobile>
                 <MenuItems>
-                  <MenuItem onClick={ () => this.props.goToSection(1,false) } className={this.props.sectionActive === 1 ? 'active' : null}>Home</MenuItem>
-                  <MenuItem onClick={ () => this.props.goToSection(2,false) } className={this.props.sectionActive  === 2 ? 'active' : null}>Progetti</MenuItem>
-                  <MenuItem onClick={ () => this.props.goToSection(3,false) } className={this.props.sectionActive  === 3 ? 'active' : null}>Articoli</MenuItem>
-                  <MenuItem onClick={ () => this.props.goToSection(4,false) } className={this.props.sectionActive  === 4 ? 'active' : null}>Chi Sono</MenuItem>
+                <Scrollspy 
+                items={ [ 'homepage-section','projectspage-section','blogposts-section','aboutpage-section'] } 
+                currentClassName="active"
+                 offset={-220}
+                 componentTag="div"
+                 style={{display: 'flex'}}>
+                  <MenuItem onClick={ () => this.props.goToSection(1,false) }>Home</MenuItem>
+                  <MenuItem onClick={ () => this.props.goToSection(2,false) }>Progetti</MenuItem>
+                  <MenuItem onClick={ () => this.props.goToSection(3,false) }>Articoli</MenuItem>
+                  <MenuItem onClick={ () => this.props.goToSection(4,false) }>Chi Sono</MenuItem>
                   <MenuItem>Visita il mio Blog</MenuItem>
+                </Scrollspy>
                 </MenuItems>
                 <Media
                   query={"(max-width: " + MediaQueries.sizes.tablet + "px)"}
@@ -196,7 +204,6 @@ class Navbar extends React.Component  {
                     ? null : this.resetMenuState()
                   }
                 />
-                
               </NavbarContainer>
             </NavbarBackContainer>                                       
           </div>

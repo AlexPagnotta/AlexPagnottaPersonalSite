@@ -3,7 +3,7 @@ import styled from "styled-components"
 import colors from "../globals/colors"
 import MediaQueries from "../Utils/mediaQueries"
 
-const AboutSectionContainer =  styled.div.attrs({ id: 'aboutpage-section', })`
+const AboutSectionContainer =  styled.div`
 width: 100%;
 
 //Fix scroll to with navbar
