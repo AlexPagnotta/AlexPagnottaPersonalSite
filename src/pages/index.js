@@ -68,14 +68,10 @@ class Index extends React.Component  {
     <Layout>     
       <NavMenuMobile goToSection={this.goToSection.bind(this)} sectionActive={this.state.sectionActive} menuVisible={this.state.menuVisible}></NavMenuMobile>
       <Navbar ref={this.navbar} goToSection={this.goToSection.bind(this)} sectionActive={this.state.sectionActive}  toggleOverlayMenu={this.toggleOverlayMenu.bind(this)} resetOverlayMenu={this.resetOverlayMenu.bind(this)}></Navbar> {/*Pass methods to children components*/}         
-      <Homepage moveSectionDown={this.moveSectionDown.bind(this)}></Homepage>   
-      <Waypoint onEnter= {() => this.sectionScrollCallback(1) }></Waypoint>                  
-      <ProjectsPage></ProjectsPage>
-      <Waypoint onEnter= {() => this.sectionScrollCallback(2) }></Waypoint>            
-      <BlogPostsPage></BlogPostsPage>    
-      <Waypoint onEnter= {() => this.sectionScrollCallback(3) }></Waypoint>       
+      <Homepage moveSectionDown={this.moveSectionDown.bind(this)}></Homepage>                                  
+      <ProjectsPage></ProjectsPage>     
+      <BlogPostsPage></BlogPostsPage>                                
       <AboutPage></AboutPage> 
-      <Waypoint onEnter= {() => this.sectionScrollCallback(4) }></Waypoint>                        
       <Footer></Footer> 
     </Layout>  
     );
