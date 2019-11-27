@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import colors from "../globals/colors"
-import MediaQueries from "../Utils/mediaQueries"
+import MediaQueries from "../utils/mediaQueries"
 
 const AboutSectionContainer =  styled.div`
 width: 100%;

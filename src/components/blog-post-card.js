@@ -1,5 +1,5 @@
 import React from "react"
-import MediaQueries from "../Utils/mediaQueries"
+import MediaQueries from "../utils/mediaQueries"
 import styled from "styled-components"
 import colors from "../globals/colors"
 

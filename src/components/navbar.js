@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import MediaQueries from "../Utils/mediaQueries"
+import MediaQueries from "../utils/mediaQueries"
 import { StaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import colors from "../globals/colors"
