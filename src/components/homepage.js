@@ -4,6 +4,7 @@ import colors from "../globals/colors"
 import MediaQueries from "../utils/mediaQueries"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
+import Typewriter from 'typewriter-effect';
 
 const HomepageContainer = styled.div`
 padding-top: 220px;
@@ -124,10 +125,18 @@ function Homepage(props) {
     return (
         <HomepageContainer>
             <TextColummn>
-                <TextContainer>
-                    <h1>Ciao, sono <br/>Alex Pagnotta |</h1>         
+                <TextContainer>           
+                    <h1>
+                        <Typewriter
+                        options={{
+                            strings: ['Buonaser', 'Ciao sono Alex Pagnotta'],
+                            autoStart: true,
+                            loop: true,
+                        }}
+                        />
+                    </h1>         
                     <p>
-                    <mark> Ho 21 anni </mark> , vivo in Umbria, e da 2 anni lavoro come <mark> sviluppatore </mark>, principalmente in <mark> c# </mark>, sia in ambiente WinForm che MVC Asp.Net.<br/>
+                    <mark> Ho 21 anni </mark> , vivo in Umbria, e da 2 anni lavoro come <mark> sviluppatore </mark>, principalmente in <mark> c# </mark>, sia in ambiente WinForm che MVC Asp.Net.<br/><br/>
                     Ho inoltre sviluppato alcune <mark> app Android </mark> nel tempo libero, oltre ad aver sempre avuto una passione per quello che riguarda la <mark> grafica e il design. </mark>
                     </p> 
                     <ScrollLinkText onClick={ () => props.moveSectionDown() } >

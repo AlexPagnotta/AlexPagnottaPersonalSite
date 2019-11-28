@@ -3,7 +3,7 @@ import colors from "../globals/colors"
 
 const typography = new Typography({
   baseFontSize: "19px",
-  baseLineHeight: 1.5,
+  baseLineHeight: 1.8,
   scaleRatio: 2.4,
   headerFontFamily: ["Bitter", "900"],
   bodyFontFamily: ["Assistant", "400"],
