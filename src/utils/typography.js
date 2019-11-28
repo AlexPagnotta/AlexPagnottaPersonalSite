@@ -4,8 +4,8 @@ import colors from "../globals/colors"
 const typography = new Typography({
   baseFontSize: "19px",
   baseLineHeight: 1.5,
-  scaleRatio: 2.5,
-  headerFontFamily: ["Bree Serif", "400"],
+  scaleRatio: 2.4,
+  headerFontFamily: ["Bitter", "900"],
   bodyFontFamily: ["Assistant", "400"],
   googleFonts: [
     {
@@ -16,9 +16,10 @@ const typography = new Typography({
       ],
     },
     {
-      name: 'Bree Serif',
+      name: 'Bitter',
       styles: [
-        '400'
+        '400',
+        '900'
       ],
     }
   ], 
