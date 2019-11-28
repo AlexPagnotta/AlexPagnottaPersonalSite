@@ -5,7 +5,7 @@ const typography = new Typography({
   baseFontSize: "19px",
   baseLineHeight: 1.8,
   scaleRatio: 2.4,
-  headerFontFamily: ["Bitter", "900"],
+  headerFontFamily: ["Bitter", "700"],
   bodyFontFamily: ["Assistant", "400"],
   googleFonts: [
     {
@@ -19,7 +19,7 @@ const typography = new Typography({
       name: 'Bitter',
       styles: [
         '400',
-        '900'
+        '700'
       ],
     }
   ], 
