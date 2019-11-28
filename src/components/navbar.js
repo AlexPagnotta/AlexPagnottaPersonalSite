@@ -153,14 +153,14 @@ class Navbar extends React.Component  {
       <StaticQuery
         query={graphql`
         query {
-          desktopLogoImage: file(relativePath: { eq: "logo.png" }) {
+          desktopLogoImage: file(relativePath: { eq: "navbar_logo.png" }) {
             childImageSharp {
               fixed(height: 60) {
                 ...GatsbyImageSharpFixed
               }
             }
           }
-          mobileLogoImage: file(relativePath: { eq: "logo.png" }) {
+          mobileLogoImage: file(relativePath: { eq: "navbar_logo.png" }) {
             childImageSharp {
               fixed(height: 40) {
                 ...GatsbyImageSharpFixed
