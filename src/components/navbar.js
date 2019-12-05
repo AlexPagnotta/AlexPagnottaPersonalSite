@@ -63,7 +63,7 @@ z-index: 3;
 
 const NavbarContainer = styled.nav`
 width: 100%;
-height: 220px; 
+height: 140px; 
 display: flex;
 justify-content: space-between;
 align-items: center;
@@ -187,7 +187,7 @@ class Navbar extends React.Component  {
                 <Scrollspy 
                 items={ [ 'homepage-section','projectspage-section','blogposts-section','aboutpage-section'] } 
                 currentClassName="active"
-                 offset={-220}
+                 offset={-140}
                  componentTag="div"
                  style={{display: 'flex'}}>
                   <MenuItem onClick={ () => this.props.goToSection(1,false) }>Home</MenuItem>

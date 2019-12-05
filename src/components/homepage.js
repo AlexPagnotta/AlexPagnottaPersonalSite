@@ -7,7 +7,7 @@ import Img from "gatsby-image"
 import Typewriter from 'typewriter-effect';
 
 const HomepageContainer = styled.div`
-padding-top: 220px;
+padding-top: 140x;
 width: 100%;
 height: 100vh;
 overflow-x: hidden;
@@ -129,7 +129,7 @@ function Homepage(props) {
                     <h1>
                         <Typewriter
                         options={{
-                            strings: ['Buonaser', 'Ciao sono Alex Pagnotta'],
+                            strings: ['Ciao sono Alex Pagnotta'],
                             autoStart: true,
                             loop: true,
                         }}
