@@ -2,6 +2,7 @@ import React from "react"
 import MediaQueries from "../utils/mediaQueries"
 import styled from "styled-components"
 import colors from "../globals/colors"
+import { Link  } from "gatsby"
 
 
 const ProjectCardContainer = styled.div`
@@ -33,7 +34,10 @@ margin-bottom: 0px;
 const ProjectCard = ({ post }) => (
   <ProjectCardContainer>
     <ProjectCardFooter>
-      <ProjectCardTitle>{post.frontmatter.title}</ProjectCardTitle>
+      <Link
+        to={post.fields.slug}>
+        <ProjectCardTitle>{post.frontmatter.title}</ProjectCardTitle>
+      </Link>
     </ProjectCardFooter>
   </ProjectCardContainer>
 )

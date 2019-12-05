@@ -65,7 +65,7 @@ white-space:nowrap;
 function ProjectsPage() {
     const data = useStaticQuery(graphql`
     query {
-        allMarkdownRemark {
+        allMarkdownRemark(filter: {frontmatter: {posttype: {eq: "project"}}}) {
             edges {
               node {
                 id,
@@ -73,6 +73,9 @@ function ProjectsPage() {
                   title
                   date
                   author
+                }
+                fields {
+                  slug
                 }
               }
             }

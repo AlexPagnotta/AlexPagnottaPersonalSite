@@ -2,7 +2,7 @@ import React from "react"
 import MediaQueries from "../utils/mediaQueries"
 import styled from "styled-components"
 import colors from "../globals/colors"
-
+import { Link  } from "gatsby"
 
 const BlogPostsCardContainer = styled.div`
 background-color:  ${colors.primaryColor};
@@ -30,7 +30,10 @@ align-items: center;
 const BlogPostCard = ({ post }) => (
   <BlogPostsCardContainer>
     <BlogPostCardFooter>
+    <Link
+      to={post.fields.slug}>
       <h3>{post.frontmatter.title}</h3>
+    </Link>
     </BlogPostCardFooter>
   </BlogPostsCardContainer>
 )

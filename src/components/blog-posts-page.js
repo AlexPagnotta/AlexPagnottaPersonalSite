@@ -64,14 +64,17 @@ white-space:nowrap;
 function BlogPostsPage() {
     const data = useStaticQuery(graphql`
     query {
-        allMarkdownRemark {
+      allMarkdownRemark(filter: {frontmatter: {posttype: {eq: "blog"}}}) {
             edges {
               node {
                 id,
                 frontmatter {
                   title
                   date
-                  author
+                  author                  
+                }
+                fields {
+                  slug
                 }
               }
             }

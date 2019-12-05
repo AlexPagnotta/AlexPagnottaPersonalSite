@@ -21,6 +21,9 @@ exports.createPages = ({ graphql, actions }) => {
         allMarkdownRemark {
           edges {
             node {
+            frontmatter {
+                posttype
+            }
               fields {
                 slug
               }
@@ -29,19 +32,24 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     `).then(result => {
-      result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-        createPage({
-          path: node.fields.slug,
-          component: path.resolve(`./src/templates/blog-post-template.js`),
-          context: {
-            // Data passed to context is available
-            // in page queries as GraphQL variables.
-            slug: node.fields.slug,
-          },
-        })
+        result.data.allMarkdownRemark.edges.forEach(edge => {
+        if (edge.node.frontmatter.posttype === 'project') {
+            createPage({
+              path:  edge.node.fields.slug,
+              component: path.resolve(`./src/templates/project-post-template.js`),
+              context: {
+                slug:  edge.node.fields.slug,
+              }
+            });
+          } else { // blog post
+            createPage({
+              path: edge.node.fields.slug,
+              component: path.resolve(`./src/templates/blog-post-template.js`),
+              context: {
+                slug: edge.node.fields.slug, 
+              }
+            });
+          }
       })
     })
   }
-
-const postPage = path.resolve("src/templates/blog-post-template.js");
-const projectPage = path.resolve("src/templates/project-post-template.js");
