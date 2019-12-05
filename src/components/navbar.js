@@ -187,7 +187,7 @@ class Navbar extends React.Component  {
                 <Scrollspy 
                 items={ [ 'homepage-section','projectspage-section','blogposts-section','aboutpage-section'] } 
                 currentClassName="active"
-                 offset={-140}
+                 offset={-150}
                  componentTag="div"
                  style={{display: 'flex'}}>
                   <MenuItem onClick={ () => this.props.goToSection(1,false) }>Home</MenuItem>

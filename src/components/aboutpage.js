@@ -2,13 +2,14 @@ import React from "react"
 import styled from "styled-components"
 import colors from "../globals/colors"
 import MediaQueries from "../utils/mediaQueries"
+import curriculumFile from '../assets/curriculum.pdf' 
 
 const AboutSectionContainer =  styled.div`
 width: 100%;
 
 //Fix scroll to with navbar
-padding-top: 220px;
-margin-top: -220px;
+padding-top: 140px;
+margin-top: -140px;
 
 ${MediaQueries.queries.tablet`
 
@@ -94,7 +95,7 @@ function AboutPage() {
                             <h2>Chi Sono?</h2>      
                             <p>
                             Come già detto, sono Alex Pagnotta, ho 21 anni, e sin da piccolo ho sempre avuto una grande passione per tutto quello che riguarda l'informatica e la programmazione, passione che da 2 anni é diventata il mio lavoro.<br/><br/>
-                            Qua sotto trovi i link ai miei profili LinkedIn, Instagram e alla mia email per contattarmi.<br/><br/>
+                            Qua sotto trovi i link ai miei profili LinkedIn, Instagram e alla mia email, alex.pagnotta@outlook.it, per contattarmi.<br/><br/>
                             Sempre in questa pagina puoi inoltre consultare il mio curriculum, in versione parziale qua sul sito, o completa scaricandolo in PDF.<br/><br/>
                             </p> 
                         </TextContainer> 
@@ -102,20 +103,20 @@ function AboutPage() {
                     <LinksColumn>       
                         <h2>Link Utili</h2>              
                         <LinksContainer>        
-                            <ScrollLinkText>
-                                Linkedin
+                            <ScrollLinkText >
+                                <a href='https://www.linkedin.com/in/alex-pagnotta/'>Linkedin</a>
                             </ScrollLinkText> 
                             <ScrollLinkText>
-                                Github
+                                <a href='https://github.com/AlexPagnotta'>Github</a>                       
                             </ScrollLinkText> 
                             <ScrollLinkText>
-                                Behance
+                                <a href='https://www.behance.net/alexpagnotta'>Behance</a>                                                        
                             </ScrollLinkText> 
                             <ScrollLinkText>
-                                Mandami un Email
+                                <a href='mailto:alex.pagnotta@outlook.it'>Mandami un Email</a>                                   
                             </ScrollLinkText> 
                             <ScrollLinkText>
-                                Scarica il mio curriculum completo
+                                <a href={curriculumFile} download>Scarica il mio curriculum completo</a>                                
                             </ScrollLinkText> 
                         </LinksContainer>                     
                     </LinksColumn>    

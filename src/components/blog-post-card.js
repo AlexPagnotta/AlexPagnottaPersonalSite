@@ -6,9 +6,9 @@ import colors from "../globals/colors"
 
 const BlogPostsCardContainer = styled.div`
 background-color:  ${colors.primaryColor};
-height: 350px;
-width: 280px;
-margin: 30px;
+height: 300px;
+width: 250px;
+margin: 0px 30px 0px 30px;
 flex-shrink: 0;
 display: flex;
 flex-direction: column-reverse;
@@ -30,7 +30,7 @@ align-items: center;
 const BlogPostCard = ({ post }) => (
   <BlogPostsCardContainer>
     <BlogPostCardFooter>
-      <h2>{post.frontmatter.title}</h2>
+      <h3>{post.frontmatter.title}</h3>
     </BlogPostCardFooter>
   </BlogPostsCardContainer>
 )

@@ -9,8 +9,8 @@ const BlogPostsSectionContainer =  styled.div`
 width: 100%;
 
 //Fix scroll to with navbar
-padding-top: 220px;
-margin-top: -220px;
+padding-top: 140px;
+margin-top: -140px;
 
 ${MediaQueries.queries.tablet`
 
@@ -33,7 +33,7 @@ overflow-x: hidden;
 
 const TitleContainer = styled.div`
 width: 100%;
-padding: 90px 30px 60px 30px;
+padding: 60px 30px 60px 30px;
 max-width: 1220px;
 margin: 0 auto; //Center the container
 `
@@ -42,7 +42,7 @@ const BlogPostsCardsContainer = styled.div`
 width: 100%;
 display flex;
 overflow: auto;
-padding-bottom: 90px;
+padding-bottom: 60px;
 max-width: 1220px;
 margin: 0 auto; //Center the container
 

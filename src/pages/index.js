@@ -53,7 +53,6 @@ class Index extends React.Component  {
     }
   }
 
-
   moveSectionDown(index) {
     scrollTo('#projectspage-section')
   }

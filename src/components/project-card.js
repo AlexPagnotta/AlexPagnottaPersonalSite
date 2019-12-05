@@ -6,9 +6,9 @@ import colors from "../globals/colors"
 
 const ProjectCardContainer = styled.div`
 background-color:  ${colors.primaryColor};
-height: 350px;
-width: 280px;
-margin: 30px;
+height: 300px;
+width: 250px;
+margin: 0px 30px 0px 30px;
 flex-shrink: 0;
 display: flex;
 flex-direction: column-reverse;
@@ -20,17 +20,20 @@ overflow: hidden;
 
 const ProjectCardFooter = styled.div`
 background-color:  ${colors.baseColor};
-height: 150px;
+height: 100px;
 width: 100%;
 padding: 30px;
 display: flex;
 align-items: center;
 `
 
+const ProjectCardTitle = styled.h3`
+margin-bottom: 0px;
+`
 const ProjectCard = ({ post }) => (
   <ProjectCardContainer>
     <ProjectCardFooter>
-      <h2>{post.frontmatter.title}</h2>
+      <ProjectCardTitle>{post.frontmatter.title}</ProjectCardTitle>
     </ProjectCardFooter>
   </ProjectCardContainer>
 )
