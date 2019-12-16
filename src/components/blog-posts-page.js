@@ -73,6 +73,9 @@ function BlogPostsPage() {
                   date
                   author                  
                 }
+                internal {
+                  content
+                }
                 fields {
                   slug
                 }

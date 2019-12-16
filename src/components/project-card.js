@@ -23,20 +23,25 @@ const ProjectCardFooter = styled.div`
 background-color:  ${colors.baseColor};
 height: 100px;
 width: 100%;
-padding: 30px;
+padding: 20px 20px 20px 20px;
 display: flex;
 align-items: center;
 `
 
-const ProjectCardTitle = styled.h3`
+const CardTitle = styled.h3`
 margin-bottom: 0px;
+display: -webkit-box;
+-webkit-line-clamp: 1;
+-webkit-box-orient: vertical;
+overflow: hidden;
 `
+
 const ProjectCard = ({ post }) => (
   <ProjectCardContainer>
     <ProjectCardFooter>
       <Link
         to={post.fields.slug}>
-        <ProjectCardTitle>{post.frontmatter.title}</ProjectCardTitle>
+        <CardTitle>{post.frontmatter.title}</CardTitle>
       </Link>
     </ProjectCardFooter>
   </ProjectCardContainer>

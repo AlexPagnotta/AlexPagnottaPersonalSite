@@ -1,5 +1,5 @@
 ---
-title: Test
+title: Implementazione Decorator Pattern 
 date: 2019-01-25
 author: Alex Pagnotta
 posttype: 'blog'

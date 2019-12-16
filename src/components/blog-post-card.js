@@ -22,18 +22,36 @@ const BlogPostCardFooter = styled.div`
 background-color:  ${colors.baseColor};
 height: 150px;
 width: 100%;
-padding: 30px;
-display: flex;
-align-items: center;
+padding: 20px 10px 20px 10px;
+text-align: center;
+`
+
+const CardTitle = styled.h4`
+margin-bottom: 20px;
+display: -webkit-box;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+overflow: hidden;
+`
+
+const CardText = styled.p`
+margin-bottom: 0px;
+font-size: 0.9rem;
+line-height: 1.1;
+display: -webkit-box;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical;
+overflow: hidden;
 `
 
 const BlogPostCard = ({ post }) => (
   <BlogPostsCardContainer>
     <BlogPostCardFooter>
-    <Link
-      to={post.fields.slug}>
-      <h3>{post.frontmatter.title}</h3>
-    </Link>
+      <Link
+        to={post.fields.slug}>
+        <CardTitle>{post.frontmatter.title}</CardTitle>
+      </Link>
+      <CardText>{post.internal.content}</CardText>      
     </BlogPostCardFooter>
   </BlogPostsCardContainer>
 )
