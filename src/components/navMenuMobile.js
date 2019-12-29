@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import colors from "../globals/colors"
 import Scrollspy from 'react-scrollspy'
+import {navigate} from 'gatsby'; 
 
 const OverlayContainer = styled.div`
 position:fixed;
@@ -58,7 +59,7 @@ function NavMenuMobile(props) {
             <MobileMenuItem onClick={ () => props.goToSection(2,true) }>Progetti</MobileMenuItem>
             <MobileMenuItem onClick={ () => props.goToSection(3,true) }>Articoli</MobileMenuItem>
             <MobileMenuItem onClick={ () => props.goToSection(4,true) }>Chi Sono</MobileMenuItem>
-            <MobileMenuItem>Visita il mio Blog</MobileMenuItem>
+            <MobileMenuItem onClick={ () => navigate('/blog') }>Visita il mio Blog</MobileMenuItem>
           </Scrollspy>
   </MobileMenuItems>
     </OverlayContainer>

@@ -5,7 +5,6 @@ import { StaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import colors from "../globals/colors"
 import Media from 'react-media';
-import Scrollspy from 'react-scrollspy'
 import {navigate} from 'gatsby'; 
 
 const MenuIconCointainer = styled.div`
@@ -108,10 +107,6 @@ display: flex;
 flex-direction: row;
 justify-content: flex-end;
 margin: 0px;
-
-${MediaQueries.queries.tablet`
-  display: none;
-`}
 `
 
 const MenuItem = styled.li`
@@ -124,44 +119,26 @@ cursor: pointer;
 }
 `
 
-class Navbar extends React.Component  {
+class NavbarBlog extends React.Component  {
 
   constructor() {
     super();
-    this.menuIconClick = this.menuIconClick.bind(this);
-    this.resetMenuState = this.resetMenuState.bind(this);
-    this.state = {
-      menuIconClicked: false
-    }; 
   }
 
-  //Change menu state, and callback parent methods
-  menuIconClick(){
-    this.setState({ menuIconClicked: !this.state.menuIconClicked });
-    this.props.toggleOverlayMenu()
-  }
-
-  //Change menu state, and callback parent methods
-  resetMenuState(){
-    if(this.state){
-      this.setState({ menuIconClicked: false }); 
-      this.props.resetOverlayMenu()
-    }
-  }
 
   render(){   
     return (
       <StaticQuery
         query={graphql`
         query {
-          desktopLogoImage: file(relativePath: { eq: "navbar_logo.png" }) {
+          desktopLogoImage: file(relativePath: { eq: "navbar_blog_logo.png" }) {
             childImageSharp {
               fixed(height: 60) {
                 ...GatsbyImageSharpFixed
               }
             }
           }
-          mobileLogoImage: file(relativePath: { eq: "navbar_logo.png" }) {
+          mobileLogoImage: file(relativePath: { eq: "navbar_blog_logo.png" }) {
             childImageSharp {
               fixed(height: 40) {
                 ...GatsbyImageSharpFixed
@@ -171,11 +148,7 @@ class Navbar extends React.Component  {
         }
         `}
         render={data => (
-          <div>  
-            <MenuIconCointainer>        
-              <MenuIcon onClick={this.menuIconClick} className={this.state.menuIconClicked ? 'active' : null}>
-              </MenuIcon>     
-            </MenuIconCointainer>    
+          <div>   
             <NavbarBackContainer>                               
               <NavbarContainer>            
                 <LogoDesktop>
@@ -185,26 +158,9 @@ class Navbar extends React.Component  {
                   <Img fixed={data.mobileLogoImage.childImageSharp.fixed} /> 
                 </LogoMobile>
                 <MenuItems>
-                <Scrollspy 
-                items={ [ 'homepage-section','projectspage-section','blogposts-section','aboutpage-section'] } 
-                currentClassName="active"
-                 offset={-150}
-                 componentTag="div"
-                 style={{display: 'flex'}}>
-                  <MenuItem onClick={ () => this.props.goToSection(1,false) }>Home</MenuItem>
-                  <MenuItem onClick={ () => this.props.goToSection(2,false) }>Progetti</MenuItem>
-                  <MenuItem onClick={ () => this.props.goToSection(3,false) }>Articoli</MenuItem>
-                  <MenuItem onClick={ () => this.props.goToSection(4,false) }>Chi Sono</MenuItem>
-                  <MenuItem onClick={ () => navigate('/blog') }>Visita il mio Blog</MenuItem>
-                </Scrollspy>
+                  {/*<MenuItem onClick={ () => this.props.goToSection(1,false) }>Home</MenuItem>*/}
+                  <MenuItem onClick={ () => navigate('') }>Visita il mio Sito</MenuItem>
                 </MenuItems>
-                <Media
-                  query={"(max-width: " + MediaQueries.sizes.tablet + "px)"}
-                  onChange={matches =>
-                    matches
-                    ? null : this.resetMenuState()
-                  }
-                />
               </NavbarContainer>
             </NavbarBackContainer>                                       
           </div>
@@ -213,7 +169,7 @@ class Navbar extends React.Component  {
     )
   }
 }
-export default Navbar
+export default NavbarBlog
   
 
 
