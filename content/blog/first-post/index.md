@@ -2,6 +2,7 @@
 title: Titolo Test di un Articolo
 date: 2019-01-25
 author: Alex Pagnotta
+featuredImage: test.png
 posttype: 'blog'
 ---
 

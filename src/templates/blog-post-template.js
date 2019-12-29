@@ -5,6 +5,7 @@ import NavbarBlog from "../components/navbar-blog"
 import styled from "styled-components"
 import colors from "../globals/colors"
 import MediaQueries from "../utils/mediaQueries"
+import Img from "gatsby-image"
 
 const BlogPostContainer = styled.div`
 padding-top: 140px;
@@ -19,16 +20,20 @@ padding-top: 100px;
 
 const TitleContainer = styled.div`
 padding: 30px 30px 0px 30px;
-margin-top: 60px;
+margin-top: 30px;
 width: 100%;
 text-align: center
 `
 
 const SubTitleContainer = styled.div`
-padding: 0px;
-margin-top: 0px;
 width: 100%;
 text-align: center
+`
+
+const CoverImageContainer = styled.div`
+width: 100%;
+height: 300px;
+overflow: hidden;
 `
 
 const TextContainer = styled.div`
@@ -57,6 +62,9 @@ export default ({ data }) => {
         <SubTitleContainer>
           <h4>{post.frontmatter.date}</h4>        
         </SubTitleContainer>
+        <CoverImageContainer>
+          <Img fluid={post.frontmatter.featuredImage.childImageSharp.fluid} />         
+        </CoverImageContainer>      
         <TextContainer>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />       
         </TextContainer>
@@ -72,6 +80,13 @@ export const query = graphql`
       frontmatter {
         title
         date(formatString: "DD MMMM, YYYY", locale: "it")
+        featuredImage {
+          childImageSharp {
+            fluid(maxWidth: 1200) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }
