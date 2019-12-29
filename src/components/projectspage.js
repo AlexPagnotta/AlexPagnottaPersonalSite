@@ -34,7 +34,7 @@ overflow-x: hidden;
 
 const TitleContainer = styled.div`
 width: 100%;
-padding: 60px 30px 60px 30px;
+padding: 60px 30px 30px 30px;
 max-width: 1220px;
 margin: 0 auto; //Center the container
 `
@@ -92,8 +92,11 @@ function ProjectsPage() {
                 <h1>I Miei Progetti |</h1> 
                 <p>Questi sono i miei ultimi progetti di grafica e programmazione.</p> 
                 <ScrollLinkText>
-                  Visualizza tutto
-                </ScrollLinkText>
+                  <a href='https://github.com/AlexPagnotta'>Vai al profilo Github</a>                       
+                </ScrollLinkText> 
+                <ScrollLinkText>
+                  <a href='https://www.behance.net/alexpagnotta'>Vai al profilo Behance</a>                                                        
+                </ScrollLinkText> 
               </TitleContainer>
               <ProjectCardsContainer>
                 {Posts}

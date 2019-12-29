@@ -7,6 +7,7 @@ import colors from "../globals/colors"
 import Media from 'react-media';
 import Scrollspy from 'react-scrollspy'
 import {navigate} from 'gatsby'; 
+import { Link  } from "gatsby";
 
 const MenuIconCointainer = styled.div`
 margin-right: 30px;
@@ -177,13 +178,16 @@ class Navbar extends React.Component  {
               </MenuIcon>     
             </MenuIconCointainer>    
             <NavbarBackContainer>                               
-              <NavbarContainer>            
-                <LogoDesktop>
-                  <Img fixed={data.desktopLogoImage.childImageSharp.fixed} /> 
-                </LogoDesktop>
-                <LogoMobile>
-                  <Img fixed={data.mobileLogoImage.childImageSharp.fixed} /> 
-                </LogoMobile>
+              <NavbarContainer>    
+              <Link 
+                  to={''}>               
+                  <LogoDesktop>
+                    <Img fixed={data.desktopLogoImage.childImageSharp.fixed} /> 
+                  </LogoDesktop>
+                  <LogoMobile>
+                    <Img fixed={data.mobileLogoImage.childImageSharp.fixed} /> 
+                  </LogoMobile>
+                </Link>
                 <MenuItems>
                 <Scrollspy 
                 items={ [ 'homepage-section','projectspage-section','blogposts-section','aboutpage-section'] } 

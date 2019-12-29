@@ -6,6 +6,7 @@ import Img from "gatsby-image"
 import colors from "../globals/colors"
 import Media from 'react-media';
 import {navigate} from 'gatsby'; 
+import { Link  } from "gatsby"
 
 const MenuIconCointainer = styled.div`
 margin-right: 30px;
@@ -150,13 +151,16 @@ class NavbarBlog extends React.Component  {
         render={data => (
           <div>   
             <NavbarBackContainer>                               
-              <NavbarContainer>            
-                <LogoDesktop>
-                  <Img fixed={data.desktopLogoImage.childImageSharp.fixed} /> 
-                </LogoDesktop>
-                <LogoMobile>
-                  <Img fixed={data.mobileLogoImage.childImageSharp.fixed} /> 
-                </LogoMobile>
+              <NavbarContainer>     
+              <Link 
+                    to={'/blog'}>       
+                  <LogoDesktop>
+                    <Img fixed={data.desktopLogoImage.childImageSharp.fixed} /> 
+                  </LogoDesktop>
+                  <LogoMobile>
+                    <Img fixed={data.mobileLogoImage.childImageSharp.fixed} /> 
+                  </LogoMobile>
+                </Link>
                 <MenuItems>
                   {/*<MenuItem onClick={ () => this.props.goToSection(1,false) }>Home</MenuItem>*/}
                   <MenuItem onClick={ () => navigate('') }>Visita il mio Sito</MenuItem>
