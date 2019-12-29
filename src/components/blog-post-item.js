@@ -6,6 +6,10 @@ import colors from "../globals/colors"
 import { Link  } from "gatsby"
 
 const BlogPostItemContainer = styled.div`
+
+& > a {
+  text-decoration: none;
+}
 `
 
 const ImageContainer = styled.div`
@@ -15,10 +19,9 @@ width: 100%;
 `
 
 const PostTitle = styled.h3`
-font-size: 1.2rem;
+font-size: 1.4rem;
 margin-bottom: 20px;
 margin-top: 20px;
-
 `
 
 const PostText = styled.p`
@@ -31,17 +34,17 @@ overflow: hidden;
 `
 
 const BlogPostItem = ({ post }) => (
-  <Link
-      to={post.fields.slug}>
-      <BlogPostItemContainer>
-        <ImageContainer>
-          <Img fluid={post.frontmatter.featuredImage.childImageSharp.fluid} />        
-        </ImageContainer> 
-        
-          <PostTitle>{post.frontmatter.title}</PostTitle>
 
-        <PostText>{post.internal.content}</PostText>      
-      </BlogPostItemContainer>
-  </Link>
+  <BlogPostItemContainer> 
+    <Link 
+        to={post.fields.slug}>
+          <ImageContainer>
+            <Img fluid={post.frontmatter.featuredImage.childImageSharp.fluid} />        
+          </ImageContainer>      
+            <PostTitle>{post.frontmatter.title}</PostTitle>
+          <PostText>{post.internal.content}</PostText>      
+    </Link>
+  </BlogPostItemContainer>
+  
 )
 export default BlogPostItem

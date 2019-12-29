@@ -26,14 +26,13 @@ grid-template-columns: repeat(3, 1fr);
 grid-gap: 90px 60px;
 padding: 30px;
 
-${MediaQueries.queries.tablet`
-grid-template-columns: repeat(2, 1fr);
-`}
+@media (max-width: 1140px) {
+  grid-template-columns: repeat(2, 1fr);
+}
 
-${MediaQueries.queries.phone`
-grid-template-columns: repeat(1, 1fr);
-`}
-
+@media (max-width: 700px) {
+  grid-template-columns: repeat(1, 1fr);
+}
 `
 
 
