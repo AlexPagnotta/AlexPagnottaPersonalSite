@@ -34,7 +34,6 @@ overflow: hidden;
 `
 
 const BlogPostItem = ({ post }) => (
-
   <BlogPostItemContainer> 
     <Link 
         to={post.fields.slug}>
@@ -44,7 +43,7 @@ const BlogPostItem = ({ post }) => (
             <PostTitle>{post.frontmatter.title}</PostTitle>
           <PostText>{post.internal.content}</PostText>      
     </Link>
-  </BlogPostItemContainer>
-  
+  </BlogPostItemContainer> 
 )
+
 export default BlogPostItem

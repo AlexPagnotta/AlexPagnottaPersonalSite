@@ -66,8 +66,13 @@ function BlogPostsPage() {
                 id,
                 frontmatter {
                   title
-                  date
-                  author                  
+                  featuredImage {
+                    childImageSharp {
+                      fixed(height: 200) {
+                        ...GatsbyImageSharpFixed
+                      }
+                    }     
+                  }                     
                 }
                 internal {
                   content

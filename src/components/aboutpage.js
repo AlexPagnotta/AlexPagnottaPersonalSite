@@ -96,7 +96,7 @@ function AboutPage() {
                             <p>
                             Come già detto, sono Alex Pagnotta, ho 21 anni, e sin da piccolo ho sempre avuto una grande passione per tutto quello che riguarda l'informatica e la programmazione, passione che da 2 anni é diventata il mio lavoro.<br/><br/>
                             Qua sotto trovi i link ai miei profili LinkedIn, Instagram e alla mia email, alex.pagnotta@outlook.it, per contattarmi.<br/><br/>
-                            Sempre in questa pagina puoi inoltre consultare il mio curriculum, in versione parziale qua sul sito, o completa scaricandolo in PDF.<br/><br/>
+                            Sempre in questa pagina puoi inoltre scaricare il mio curriculm completo in PDF.<br/><br/>
                             </p> 
                         </TextContainer> 
                     </ChiSonoColumn>
