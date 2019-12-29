@@ -18,6 +18,25 @@ padding-top: 100px;
 `}
 `
 
+const PostsContainer = styled.div`
+width: 100%;
+margin-top: 90px;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+grid-gap: 90px 60px;
+padding: 30px;
+
+${MediaQueries.queries.tablet`
+grid-template-columns: repeat(2, 1fr);
+`}
+
+${MediaQueries.queries.phone`
+grid-template-columns: repeat(1, 1fr);
+`}
+
+`
+
+
 function Blog() {
   const data = useStaticQuery(graphql`
   query {
@@ -53,7 +72,9 @@ const Posts = data.allMarkdownRemark.edges
     <Layout>
       <NavbarBlog ></NavbarBlog>
       <BlogContainer>
-        {Posts}
+        <PostsContainer>
+          {Posts}
+        </PostsContainer>
       </BlogContainer>
     </Layout> 
   )
