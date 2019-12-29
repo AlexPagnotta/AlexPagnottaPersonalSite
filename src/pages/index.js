@@ -10,6 +10,7 @@ import Footer from "../components/footer";
 import styled from "styled-components"
 import scrollTo from 'gatsby-plugin-smoothscroll';
 import { Waypoint } from 'react-waypoint';
+import {Helmet} from "react-helmet";
 
 class Index extends React.Component  {
 
@@ -59,7 +60,12 @@ class Index extends React.Component  {
  
   render(){
     return(
-    <Layout>     
+    <Layout>    
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Alex Pagnotta</title>
+        <link rel="canonical" href="http://alexpagnotta.me" />
+      </Helmet> 
       <NavMenuMobile goToSection={this.goToSection.bind(this)} menuVisible={this.state.menuVisible}></NavMenuMobile>
       <Navbar ref={this.navbar} goToSection={this.goToSection.bind(this)} toggleOverlayMenu={this.toggleOverlayMenu.bind(this)} resetOverlayMenu={this.resetOverlayMenu.bind(this)}></Navbar> {/*Pass methods to children components*/}         
       

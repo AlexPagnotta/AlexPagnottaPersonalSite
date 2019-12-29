@@ -6,6 +6,7 @@ import styled from "styled-components"
 import colors from "../globals/colors"
 import MediaQueries from "../utils/mediaQueries"
 import Img from "gatsby-image"
+import {Helmet} from "react-helmet";
 
 const BlogPostContainer = styled.div`
 padding-top: 140px;
@@ -54,6 +55,10 @@ export default ({ data }) => {
   const post = data.markdownRemark
   return (
     <Layout>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Alex Pagnotta Blog| {post.frontmatter.title}</title>
+      </Helmet> 
       <NavbarBlog ></NavbarBlog>
       <BlogPostContainer>
         <TitleContainer>

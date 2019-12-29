@@ -6,6 +6,7 @@ import colors from "../globals/colors"
 import MediaQueries from "../utils/mediaQueries"
 import BlogPostItem from "../components/blog-post-item";
 import { useStaticQuery, graphql } from "gatsby"
+import {Helmet} from "react-helmet";
 
 const BlogContainer = styled.div`
 padding-top: 140px;
@@ -69,6 +70,11 @@ const Posts = data.allMarkdownRemark.edges
 .map(edge => <BlogPostItem key={edge.node.id} post={edge.node} />)
   return (
     <Layout>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Alex Pagnotta Blog</title>
+        <link rel="canonical" href="http://alexpagnotta.me/blog" />
+      </Helmet> 
       <NavbarBlog ></NavbarBlog>
       <BlogContainer>
         <PostsContainer>
