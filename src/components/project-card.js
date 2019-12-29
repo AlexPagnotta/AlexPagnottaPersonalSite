@@ -2,7 +2,7 @@ import React from "react"
 import MediaQueries from "../utils/mediaQueries"
 import styled from "styled-components"
 import colors from "../globals/colors"
-import { Link  } from "gatsby"
+import Img from "gatsby-image"
 
 
 const ProjectCardContainer = styled.div`
@@ -12,7 +12,7 @@ width: 250px;
 margin: 0px 30px 0px 30px;
 flex-shrink: 0;
 display: flex;
-flex-direction: column-reverse;
+flex-direction: column;
 overflow: hidden;
 
 /* this fixes the overflow:hidden in Chrome */
@@ -37,13 +37,15 @@ overflow: hidden;
 `
 
 const ProjectCard = ({ post }) => (
+  <a href={post.frontmatter.projecturl}>
   <ProjectCardContainer>
+    <Img fixed={post.frontmatter.featuredImage.childImageSharp.fixed} /> 
     <ProjectCardFooter>
-      <Link
-        to={post.fields.slug}>
-        <CardTitle>{post.frontmatter.title}</CardTitle>
-      </Link>
+    <CardTitle>
+      {post.frontmatter.title}  
+    </CardTitle>
     </ProjectCardFooter>
   </ProjectCardContainer>
+  </a>
 )
 export default ProjectCard

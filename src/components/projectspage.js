@@ -71,8 +71,14 @@ function ProjectsPage() {
                 id,
                 frontmatter {
                   title
-                  date
-                  author
+                  projecturl
+                  featuredImage {
+                    childImageSharp {
+                      fixed(height: 200) {
+                        ...GatsbyImageSharpFixed
+                      }
+                    }     
+                  }        
                 }
                 fields {
                   slug
