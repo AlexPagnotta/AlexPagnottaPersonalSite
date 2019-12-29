@@ -1,6 +1,6 @@
 ---
-title: Titolo Test di un Articolo
-date: 2019-01-25
+title: Implementazione Strategy Pattern
+date: 2019-12-29
 author: Alex Pagnotta
 featuredImage: test.png
 posttype: 'blog'
