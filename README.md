@@ -6,10 +6,6 @@ The site has been developed with gastby and it's hosted with netlify.
 
 [Visit the website](https://alexpagnotta.me)
 
-<img src="https://i.imgur.com/7McVFMP.png" width="640" heigth="360">
-<img src="https://i.imgur.com/eA0md7a.png" width="640" heigth="360">
-<img src="https://i.imgur.com/SJiS4b8.png" width="640" heigth="360">
-<img src="https://i.imgur.com/RKYWwn3.png" width="360" heigth="640">
-<img src="https://i.imgur.com/3fPMsFI.png" width="360" heigth="640">
+<img src="https://drive.google.com/uc?export=view&id=1_S7llSO0JQsNx_QhYSvzGlSU14LdtlNf" width="640" heigth="360">
 
 # Developed by Alex Pagnotta
