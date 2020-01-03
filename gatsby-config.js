@@ -3,6 +3,7 @@ module.exports = {
     title: `Alex Pagnotta`,
     description: `Sito Personale di Alex Pagnotta`,
     author: `Alex Pagnotta`,
+    siteUrl: `https://alexpagnotta.me`
   },
   plugins: [
     `gatsby-plugin-styled-components`,
