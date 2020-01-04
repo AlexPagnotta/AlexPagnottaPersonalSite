@@ -34,7 +34,8 @@ text-align: center
 const CoverImageContainer = styled.div`
 width: 100%;
 height: 300px;
-overflow: hidden;
+overflow:hidden;
+
 `
 
 const TextContainer = styled.div`
@@ -68,7 +69,7 @@ export default ({ data }) => {
           <h4>{post.frontmatter.date}</h4>        
         </SubTitleContainer>
         <CoverImageContainer>
-          <Img fluid={post.frontmatter.featuredImage.childImageSharp.fluid} />         
+          <Img imgStyle={{height: 300, objectPosition: 'center'}} fluid={post.frontmatter.featuredImage.childImageSharp.fluid} />               
         </CoverImageContainer>      
         <TextContainer>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />       
