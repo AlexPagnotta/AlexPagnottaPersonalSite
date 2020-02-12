@@ -8,3 +8,5 @@ posttype: 'blog'
 
 TEST
 
+![Result](program.png)
+
