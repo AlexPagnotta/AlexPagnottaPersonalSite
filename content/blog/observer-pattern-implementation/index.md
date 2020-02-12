@@ -8,5 +8,16 @@ posttype: 'blog'
 
 TEST
 
+`embed:Subject.cs`
+
+sdsadsda
+
+`embed:Subject.cs`
+
+dsdsad
+
+`embed:Program.cs`
+
+
 ![Result](program.png)
 
