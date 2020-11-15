@@ -1,6 +1,12 @@
-# My Personal Site
+# My Old Personal Site
 
-This is the repository for my personal site, that includes a portfolio for all my projects and a blog.
+
+
+### I've made a new site with Vue.js, Bulma and automatic fetch of articles and project from Github and Medium Rss.
+
+[Go to the new Site Repository](https://github.com/AlexPagnotta/AlexPagnottaSite)
+
+This is the repository for my old personal site, it includes a portfolio for all my projects and a blog.
 
 The site has been developed with gastby and it's hosted with netlify.
 
